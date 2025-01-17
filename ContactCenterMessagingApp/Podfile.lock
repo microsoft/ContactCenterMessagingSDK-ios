@@ -1,0 +1,47 @@
+PODS:
+  - AdaptiveCards (2.9.13):
+    - AdaptiveCards/AdaptiveCardsCore (= 2.9.13)
+    - AdaptiveCards/AdaptiveCardsPrivate (= 2.9.13)
+    - AdaptiveCards/ObjectModel (= 2.9.13)
+    - AdaptiveCards/UIProviders (= 2.9.13)
+  - AdaptiveCards/AdaptiveCardsCore (2.9.13):
+    - AdaptiveCards/AdaptiveCardsPrivate
+    - AdaptiveCards/ObjectModel
+    - SVGKit (>= 3.0.0)
+  - AdaptiveCards/AdaptiveCardsPrivate (2.9.13)
+  - AdaptiveCards/ObjectModel (2.9.13)
+  - AdaptiveCards/UIProviders (2.9.13):
+    - MicrosoftFluentUI/Tooltip_ios (~> 0.3.6)
+  - CocoaLumberjack (3.8.5):
+    - CocoaLumberjack/Core (= 3.8.5)
+  - CocoaLumberjack/Core (3.8.5)
+  - MicrosoftFluentUI/Core_ios (0.3.9)
+  - MicrosoftFluentUI/Label_ios (0.3.9):
+    - MicrosoftFluentUI/Core_ios
+  - MicrosoftFluentUI/Tooltip_ios (0.3.9):
+    - MicrosoftFluentUI/Label_ios
+    - MicrosoftFluentUI/TouchForwardingView_ios
+  - MicrosoftFluentUI/TouchForwardingView_ios (0.3.9):
+    - MicrosoftFluentUI/Core_ios
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+
+DEPENDENCIES:
+  - AdaptiveCards
+
+SPEC REPOS:
+  trunk:
+    - AdaptiveCards
+    - CocoaLumberjack
+    - MicrosoftFluentUI
+    - SVGKit
+
+SPEC CHECKSUMS:
+  AdaptiveCards: 5c880a66ec869eab4cc92536f28ab820845740f8
+  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  MicrosoftFluentUI: a1e8f35e43e615a3522c53492f1bc52e9d2a191e
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+
+PODFILE CHECKSUM: 7dafab091f77d94af2a14abb92dcfcc8db258664
+
+COCOAPODS: 1.15.2
