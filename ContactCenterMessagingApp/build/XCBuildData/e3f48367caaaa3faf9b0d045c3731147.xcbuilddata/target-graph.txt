@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'MicrosoftFluentUI-FluentUIResources-ios' in project 'Pods' (no dependencies)
