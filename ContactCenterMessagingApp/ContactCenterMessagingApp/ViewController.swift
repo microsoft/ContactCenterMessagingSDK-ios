@@ -84,13 +84,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("**** viewDidAppear")
-        print("view isViewLoaded : ",self.isViewLoaded)
-        print("view visible : ",self.viewIfLoaded?.window != nil)
         LiveChatMessaging.shared.initOmnichannelChatSDK(self) { [self] success, error in
             if success != nil {
                 checkChatGoingOn { isChatGoingOn in
-                    print("checkChatGoingOn :",isChatGoingOn)
                     DispatchQueue.main.async { [self] in
                         isChatGoingOn ? btnStartChat.setTitle("Restart Chat", for: .normal) : btnStartChat.setTitle("Start Chat", for: .normal)
                         btnStartChat.isEnabled = true
@@ -98,7 +94,6 @@ class ViewController: UIViewController {
                     }
                 }
             } else {
-                print("checkChatGoingOn else")
                 btnStartChat.isEnabled = true
                 btnStartChat.backgroundColor = UIColor(red: 47/255.0, green: 90/255.0, blue: 146/255.0, alpha: 1.0)
             }
@@ -108,7 +103,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("**** viewWillAppear")
     }
     
     @IBAction func actionBtnStartChat(_ sender: Any) {
@@ -180,16 +174,16 @@ class ViewController: UIViewController {
     }
     
     func checkChatGoingOn(completionHandler: @escaping ((_ isChatGoingOn: Bool) -> Void)) {
-        print("view isViewLoaded : ",self.isViewLoaded)
-        print("view visible : ",self.viewIfLoaded?.window != nil)
-        
         if self.isViewLoaded && self.viewIfLoaded?.window != nil {
             if LiveChatMessaging.shared.getChatProgress() {
                 LiveChatMessaging.shared.getConversationDetails(LCWLiveChatContextRequest(liveChatContext: LiveChatMessaging.shared.getLiveChatContext())) { success, error in
-                    if let responseObj = success?.getResponse() as? [String: Any],let canRenderPostChat = responseObj["canRenderPostChat"] as? String {
-                        let postChatFlag = canRenderPostChat.lowercased() == "true" ? true : false
-                        completionHandler(postChatFlag)
-                        return
+                    if let responseObj = success?.getResponse() as? [String: Any] {
+                        if let state = responseObj["state"] as? String {
+                            if state !=  "Closed" || state !=  "WrapUp" {
+                                completionHandler(true)
+                                return
+                            }
+                        }
                     }
                     completionHandler(false)
                 }
