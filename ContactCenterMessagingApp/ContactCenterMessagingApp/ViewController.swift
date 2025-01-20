@@ -23,9 +23,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnClearChat: UIButton!
     private var workItem : DispatchWorkItem? = nil
     
-    private var orgIdData = "ce4db5f6-1c20-ee11-a66d-000d3a0a02f3"
-    private var orgUrlData = "https://m-ce4db5f6-1c20-ee11-a66d-000d3a0a02f3.ca.omnichannelengagementhub.com"
-    private var widgetIdData = "f1c6e251-1fd5-413f-afd3-77620ae6561e"
+    private var orgIdData = "<Add org Id>"
+    private var orgUrlData = "<Add org url>"
+    private var widgetIdData = "<Add widget url>"
     private var authToken = ""
    
     private var orgIdDataFinal = ""
@@ -39,8 +39,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("**** viewDidLoad")
-
         orgIdTextField.delegate = self
         orgUrlTextField.delegate = self
         widgetIdTextField.delegate = self
