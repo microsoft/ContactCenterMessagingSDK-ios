@@ -80,10 +80,7 @@ class ViewController: UIViewController {
         setProdAPI();
         btnStartChat.backgroundColor = .lightGray
         btnStartChat.isEnabled = false
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
         LiveChatMessaging.shared.initOmnichannelChatSDK(self) { [self] success, error in
             if success != nil {
                 checkChatGoingOn { isChatGoingOn in
@@ -98,7 +95,10 @@ class ViewController: UIViewController {
                 btnStartChat.backgroundColor = UIColor(red: 47/255.0, green: 90/255.0, blue: 146/255.0, alpha: 1.0)
             }
         }
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillAppear(_ animated: Bool) {
