@@ -23,13 +23,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnClearChat: UIButton!
     private var workItem : DispatchWorkItem? = nil
     
-//    private var orgIdData = "<Add org Id>"
-//    private var orgUrlData = "<Add org url>"
-//    private var widgetIdData = "<Add widget url>"
-        
-    private var orgIdData = "ce4db5f6-1c20-ee11-a66d-000d3a0a02f3"
-    private var orgUrlData = "https://m-ce4db5f6-1c20-ee11-a66d-000d3a0a02f3.ca.omnichannelengagementhub.com"
-    private var widgetIdData = "dde9247f-25be-45c9-919d-17cc3ea4ba4a"
+    private var orgIdData = "<Add org Id>"
+    private var orgUrlData = "<Add org url>"
+    private var widgetIdData = "<Add widget url>"
     private var authToken = ""
    
     private var orgIdDataFinal = ""
