@@ -23,9 +23,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnClearChat: UIButton!
     private var workItem : DispatchWorkItem? = nil
     
-    private var orgIdData = "<Add org Id>"
-    private var orgUrlData = "<Add org url>"
-    private var widgetIdData = "<Add widget url>"
+//    private var orgIdData = "<Add org Id>"
+//    private var orgUrlData = "<Add org url>"
+//    private var widgetIdData = "<Add widget url>"
+        
+    private var orgIdData = "ce4db5f6-1c20-ee11-a66d-000d3a0a02f3"
+    private var orgUrlData = "https://m-ce4db5f6-1c20-ee11-a66d-000d3a0a02f3.ca.omnichannelengagementhub.com"
+    private var widgetIdData = "dde9247f-25be-45c9-919d-17cc3ea4ba4a"
     private var authToken = ""
    
     private var orgIdDataFinal = ""
@@ -167,10 +171,10 @@ class ViewController: UIViewController {
         widgetIdTextField.text = widgetIdData
         authTokenTextField.text = authToken
         
-        authTokenFinal = orgIdData
-        orgIdDataFinal = orgUrlData
-        orgUrlDataFinal = widgetIdData
-        widgetIdDataFinal = authToken
+        widgetIdDataFinal = widgetIdData
+        orgIdDataFinal = orgIdData
+        orgUrlDataFinal = orgUrlData
+        authTokenFinal = authToken
     }
     
     func checkChatGoingOn(completionHandler: @escaping ((_ isChatGoingOn: Bool) -> Void)) {
@@ -207,6 +211,9 @@ extension ViewController: LCWMessagingDelegate {
     
     func onChatMinimizeButtonClicked() {
         print("*** onChatMinimizeButtonClicked")
+        if LiveChatMessaging.shared.getChatProgress() {
+            btnStartChat.setTitle("Restart Chat", for: .normal)
+        }
     }
 
    func onChatCloseButtonClicked(){
