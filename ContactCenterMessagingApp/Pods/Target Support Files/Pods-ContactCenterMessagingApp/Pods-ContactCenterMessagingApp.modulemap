@@ -1,6 +1,0 @@
-framework module Pods_ContactCenterMessagingApp {
-  umbrella header "Pods-ContactCenterMessagingApp-umbrella.h"
-
-  export *
-  module * { export * }
-}

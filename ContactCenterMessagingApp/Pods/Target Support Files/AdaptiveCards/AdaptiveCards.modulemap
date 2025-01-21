@@ -1,6 +1,0 @@
-framework module AdaptiveCards {
-  umbrella header "AdaptiveCards-umbrella.h"
-
-  export *
-  module * { export * }
-}
