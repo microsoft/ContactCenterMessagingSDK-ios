@@ -6,6 +6,10 @@ install! 'cocoapods', :deterministic_uuids => false
 target 'ContactCenterMessagingApp' do
   use_frameworks!
   pod 'AdaptiveCards'
+  
+  # update latest ContactCenterMessagingSDK version
+  $sdkVersion = 'v0.0.1-pr.176'
+  pod 'ContactCenterMessagingSDK', :podspec => 'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
