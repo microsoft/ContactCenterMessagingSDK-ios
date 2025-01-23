@@ -15,12 +15,6 @@
 		B73CDDB62C0DC9040052B61C /* ContactCenterMessagingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CDDB52C0DC9040052B61C /* ContactCenterMessagingAppTests.swift */; };
 		B73CDDC02C0DC9040052B61C /* ContactCenterMessagingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CDDBF2C0DC9040052B61C /* ContactCenterMessagingAppUITests.swift */; };
 		B73CDDC22C0DC9040052B61C /* ContactCenterMessagingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CDDC12C0DC9040052B61C /* ContactCenterMessagingAppUITestsLaunchTests.swift */; };
-		B75CB5F52D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75CB5F22D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework */; };
-		B75CB5F62D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B75CB5F22D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B75CB5F72D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75CB5F32D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework */; };
-		B75CB5F82D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B75CB5F32D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B75CB5F92D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75CB5F42D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework */; };
-		B75CB5FA2D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B75CB5F42D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B773E4952C5150F1008F4FB8 /* AudioSoundFile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B773E4942C5150F1008F4FB8 /* AudioSoundFile.mp3 */; };
 		B7BF1BE22C0E041600683424 /* ThemeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BF1BE12C0E041600683424 /* ThemeFile.swift */; };
 		B7F8BB062D354E4900A635AF /* Pods_ContactCenterMessagingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B84CA61B91FDE857726FA4 /* Pods_ContactCenterMessagingApp.framework */; };
@@ -51,9 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B75CB5F62D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework in Embed Frameworks */,
-				B75CB5FA2D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework in Embed Frameworks */,
-				B75CB5F82D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework in Embed Frameworks */,
 				B7F8BB072D354E4900A635AF /* Pods_ContactCenterMessagingApp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -76,9 +67,6 @@
 		B73CDDBB2C0DC9040052B61C /* ContactCenterMessagingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactCenterMessagingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73CDDBF2C0DC9040052B61C /* ContactCenterMessagingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCenterMessagingAppUITests.swift; sourceTree = "<group>"; };
 		B73CDDC12C0DC9040052B61C /* ContactCenterMessagingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCenterMessagingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B75CB5F22D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ContactCenterMessagingWidget.xcframework; sourceTree = "<group>"; };
-		B75CB5F32D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = OmnichannelChatSDK.xcframework; sourceTree = "<group>"; };
-		B75CB5F42D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ContactCenterMessagingSDK.xcframework; sourceTree = "<group>"; };
 		B773E4942C5150F1008F4FB8 /* AudioSoundFile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AudioSoundFile.mp3; sourceTree = "<group>"; };
 		B7BF1BE12C0E041600683424 /* ThemeFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeFile.swift; sourceTree = "<group>"; };
 		DE0F847D997C111D3F0EAC13 /* Pods-LCWMessagingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCWMessagingApp.release.xcconfig"; path = "Target Support Files/Pods-LCWMessagingApp/Pods-LCWMessagingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,9 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75CB5F52D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework in Frameworks */,
-				B75CB5F92D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework in Frameworks */,
-				B75CB5F72D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework in Frameworks */,
 				B7F8BB062D354E4900A635AF /* Pods_ContactCenterMessagingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,9 +103,6 @@
 		8AB255C28F5596B53DE9B014 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B75CB5F42D3AE2FC0050B43E /* ContactCenterMessagingSDK.xcframework */,
-				B75CB5F22D3AE2FC0050B43E /* ContactCenterMessagingWidget.xcframework */,
-				B75CB5F32D3AE2FC0050B43E /* OmnichannelChatSDK.xcframework */,
 				F6B84CA61B91FDE857726FA4 /* Pods_ContactCenterMessagingApp.framework */,
 			);
 			name = Frameworks;
