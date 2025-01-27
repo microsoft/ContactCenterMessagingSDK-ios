@@ -1,14 +1,31 @@
-# Project
+# Contact Center Messaging SDK - iOS
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+** ⚠️ The software is a pre-release version. It may not operate correctly. It may be different from the
+commercially released version. You may not use the software in the live opening environment unless
+Microsoft permits you to do so under another agreement. You are highly encouraged to upgrade within
+30 days following first availability of a commercial release of the software.**
 
-As the maintainer of this project, please make a few updates:
+## Building the sample app - ContactCenterMessagingApp
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+Manual Integration:
+1. Clone the repository.
+2. Open terminal and go to folder ContactCenterMessagingApp demo app
+3. Install pods : command : pod install
+4. Manually download the xcframeworks from releases section for desired version and place into 
+ContactCenterMessagingApp folder. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
+5. Open ContactCenterMessagingApp.xcworkspace
+6. Add credentials OrgID, OrgURL and WidgetId into ViewController class
+7. Run the application 
+
+Integration through Cocoapods:
+1. Clone the repository.
+2. Open terminal and go to folder ContactCenterMessagingApp demo app
+3. Open podfile and update ContactCenterMessagingSDK version
+4. Install pods : command : pod install
+5. Open ContactCenterMessagingApp.xcworkspace
+6. Add credentials OrgID, OrgURL and WidgetId into ViewController class
+7. Run the application 
+
 
 ## Contributing
 
