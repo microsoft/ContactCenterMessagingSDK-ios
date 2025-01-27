@@ -9,7 +9,7 @@ Microsoft permits you to do so under another agreement. You are highly encourage
 
 Manual Integration:
 1. Clone the repository.
-2. Open terminal and go to the ContactCenterMessagingApp demo app folder.
+2. Open the terminal and change directory to the root folder of ContactCenterMessagingApp.
 3. Install pods : command : pod install
 4. Manually download the xcframeworks from releases section for desired version and place into 
 ContactCenterMessagingApp folder. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
@@ -19,7 +19,7 @@ ContactCenterMessagingApp folder. https://github.com/microsoft/ContactCenterMess
 
 Integration through Cocoapods:
 1. Clone the repository.
-2. Open terminal and go to the ContactCenterMessagingApp demo app folder.
+2. Open the terminal and change directory to the root folder of ContactCenterMessagingApp.
 3. Open podfile and update ContactCenterMessagingSDK version.
 4. Install pods : command : pod install
 5. Open ContactCenterMessagingApp.xcworkspace.
