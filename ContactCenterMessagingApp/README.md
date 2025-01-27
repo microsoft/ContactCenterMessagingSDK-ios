@@ -5,7 +5,7 @@
 Manual Integration:
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Go to the root folder of ContactCenterMessagingApp.
-3. Open the Podfile and comment out the following line to prevent cocoaPods from automatically adding the SDK: 
+3. Open the Podfile and either remove or comment out the following lines to prevent CocoaPods from automatically adding the SDK:
     ```
     $sdkVersion = 'v0.0.1-beta.17' 
     pod 'ContactCenterMessagingSDK', :podspec => 'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
