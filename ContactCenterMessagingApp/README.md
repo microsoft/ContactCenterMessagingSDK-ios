@@ -29,6 +29,6 @@ Integration through Cocoapods:
 4. Open the terminal and navigate to the root directory of the ContactCenterMessagingApp to install the pods for the Adaptivecards dependency & ContactCenterMessagingSDKs. Execute the following command in the terminal.
 command : pod install
 5. Open ContactCenterMessagingApp.xcworkspace in xcode.
-6. Add omnichannel credentials OrgID, OrgURL and WidgetId into ViewController class.
+6. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
 7. Clean build and run the application.
 
