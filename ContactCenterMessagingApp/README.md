@@ -15,7 +15,7 @@ command : pod install
 5. Manually download the xcframeworks from releases section for desired version and add into to the root folder of ContactCenterMessagingApp. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
 6. Open ContactCenterMessagingApp.xcworkspace in xcode.
 7. Add the downloaded xcframeworks into the project. For adding XCframeworks 
-Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> Open 'Frameworks, Library and Embedded content' -> Click on '+' icon -> Click on 'Add Other' -> Select 'Add Files' -> Select following xcframeworks
+Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> Open 'Frameworks, Library and Embedded Content' -> Click on '+' icon -> Click on 'Add Other' -> Select 'Add Files' -> Select following xcframeworks
         a. ContactCenterMessagingSDK.xcframework
         b. ContactCenterMessagingWidget.xcframework
         c. OmnichannelChatSDK.xcframework
