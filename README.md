@@ -1,14 +1,13 @@
-# Project
+# Contact Center Messaging SDK - iOS
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+> ⚠️ The software is a pre-release version. It may not operate correctly. It may be different from the
+commercially released version. You may not use the software in the live opening environment unless
+Microsoft permits you to do so under another agreement. You are highly encouraged to upgrade within
+30 days following first availability of a commercial release of the software.
 
-As the maintainer of this project, please make a few updates:
+## Building the sample app - ContactCenterMessagingApp
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+Refer to the README of the ContactCenterMessagingApp for detailed information.
 
 ## Contributing
 
