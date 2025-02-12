@@ -8,7 +8,7 @@ target 'ContactCenterMessagingApp' do
   pod 'AdaptiveCards'
   
   # update latest ContactCenterMessagingSDK version
-  $sdkVersion = 'v0.0.1-beta.16'
+  $sdkVersion = 'v0.0.2'
   pod 'ContactCenterMessagingSDK', :podspec => 'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
 
 post_install do |installer|
