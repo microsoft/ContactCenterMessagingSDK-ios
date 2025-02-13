@@ -27,9 +27,9 @@ let package = Package(
         .target(
             name: "ContactCenterMessagingSDK-ios",
             dependencies: [
-                "ContactCenterMessagingSDK",
-                "ContactCenterMessagingWidget",
-                "OmnichannelChatSDK"
+                .target(name: "ContactCenterMessagingSDK"),
+                .target(name: "ContactCenterMessagingWidget"),
+                .target(name: "OmnichannelChatSDK"),
             ]),
     ]
 )
