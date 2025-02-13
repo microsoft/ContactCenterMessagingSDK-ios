@@ -15,7 +15,7 @@ let package = Package(
             targets: ["ContactCenterMessagingSDK-ios"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/microsoft/AdaptiveCards.git", from: "2.7.0")
+        .package(url: "https://github.com/microsoft/AdaptiveCards.git", branch: "master")
     ],
     targets: [
         .binaryTarget(
