@@ -20,13 +20,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ContactCenterMessagingSDK",
-            path: "./releases/ContactCenterMessagingSDK.xcframework"),
+            path: "./ContactCenterMessagingApp/ContactCenterMessagingSDK.xcframework"),
         .binaryTarget(
             name: "ContactCenterMessagingWidget",
-            path: "./releases/ContactCenterMessagingWidget.xcframework"),
+            path: "./ContactCenterMessagingApp/ContactCenterMessagingWidget.xcframework"),
         .binaryTarget(
             name: "OmnichannelChatSDK",
-            path: "./releases/OmnichannelChatSDK.xcframework"),
+            path: "./ContactCenterMessagingApp/OmnichannelChatSDK.xcframework"),
         .target(
             name: "ContactCenterMessagingSDK-ios",
             dependencies: [
