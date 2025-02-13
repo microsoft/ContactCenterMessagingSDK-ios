@@ -12,9 +12,11 @@ let package = Package(
     products: [
         .library(
             name: "ContactCenterMessagingSDK-ios",
-            targets: ["ContactCenterMessagingSDK-ios"]),
+            targets: ["ContactCenterMessagingSDK-ios", "ContactCenterMessagingSDK", "ContactCenterMessagingWidget","OmnichannelChatSDK"]),
     ],
     targets: [
+        .target(
+            name: "ContactCenterMessagingSDK-ios"),
         .binaryTarget(
             name: "ContactCenterMessagingSDK",
             path: "./Sources/ContactCenterMessagingSDK.xcframework"),
@@ -23,13 +25,7 @@ let package = Package(
             path: "./Sources/ContactCenterMessagingWidget.xcframework"),
         .binaryTarget(
             name: "OmnichannelChatSDK",
-            path: "./Sources/OmnichannelChatSDK.xcframework"),
-        .target(
-            name: "ContactCenterMessagingSDK-ios",
-            dependencies: [
-                .target(name: "ContactCenterMessagingSDK"),
-                .target(name: "ContactCenterMessagingWidget"),
-                .target(name: "OmnichannelChatSDK"),
-            ]),
+            path: "./Sources/OmnichannelChatSDK.xcframework")
     ]
 )
+
