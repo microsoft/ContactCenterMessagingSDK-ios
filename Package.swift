@@ -4,18 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "ContactCenterMessagingSDK-ios",
+    name: "ContactCenterMessagingSPM",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "ContactCenterMessagingSDK-ios",
-            targets: ["ContactCenterMessagingSDK-ios"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/microsoft/AdaptiveCards.git", branch: "master")
+            name: "ContactCenterMessagingSDKSPM",
+            targets: ["ContactCenterMessagingSDKSPM"]),
     ],
     targets: [
         .binaryTarget(
@@ -28,12 +25,11 @@ let package = Package(
             name: "OmnichannelChatSDK",
             path: "./Sources/OmnichannelChatSDK.xcframework"),
         .target(
-            name: "ContactCenterMessagingSDK-ios",
+            name: "ContactCenterMessagingSPM",
             dependencies: [
                 "ContactCenterMessagingSDK",
                 "ContactCenterMessagingWidget",
-                "OmnichannelChatSDK",
-                .product(name: "AdaptiveCards", package: "AdaptiveCards")
+                "OmnichannelChatSDK"
             ]),
     ]
 )
