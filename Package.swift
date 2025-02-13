@@ -15,18 +15,18 @@ let package = Package(
             targets: ["ContactCenterMessagingSDK-ios"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/microsoft/AdaptiveCards.git", from: "2.7.0")
+        .package(url: "https://github.com/microsoft/AdaptiveCards.git", branch: "master")
     ],
     targets: [
         .binaryTarget(
             name: "ContactCenterMessagingSDK",
-            path: "./ContactCenterMessagingApp/ContactCenterMessagingSDK.xcframework"),
+            path: "./Sources/ContactCenterMessagingSDK.xcframework"),
         .binaryTarget(
             name: "ContactCenterMessagingWidget",
-            path: "./ContactCenterMessagingApp/ContactCenterMessagingWidget.xcframework"),
+            path: "./Sources/ContactCenterMessagingWidget.xcframework"),
         .binaryTarget(
             name: "OmnichannelChatSDK",
-            path: "./ContactCenterMessagingApp/OmnichannelChatSDK.xcframework"),
+            path: "./Sources/OmnichannelChatSDK.xcframework"),
         .target(
             name: "ContactCenterMessagingSDK-ios",
             dependencies: [
