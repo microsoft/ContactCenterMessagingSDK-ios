@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "ContactCenterMessagingSPM",
+    name: "ContactCenterMessagingSDK-ios",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "ContactCenterMessagingSDKSPM",
-            targets: ["ContactCenterMessagingSDKSPM"]),
+            name: "ContactCenterMessagingSDK-ios",
+            targets: ["ContactCenterMessagingSDK-ios"]),
     ],
     targets: [
         .binaryTarget(
@@ -25,7 +25,7 @@ let package = Package(
             name: "OmnichannelChatSDK",
             path: "./Sources/OmnichannelChatSDK.xcframework"),
         .target(
-            name: "ContactCenterMessagingSPM",
+            name: "ContactCenterMessagingSDK-ios",
             dependencies: [
                 "ContactCenterMessagingSDK",
                 "ContactCenterMessagingWidget",
