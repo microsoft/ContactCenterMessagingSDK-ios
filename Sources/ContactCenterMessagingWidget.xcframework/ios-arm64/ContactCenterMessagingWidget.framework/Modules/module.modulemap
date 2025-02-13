@@ -1,0 +1,11 @@
+framework module ContactCenterMessagingWidget {
+  umbrella header "ContactCenterMessagingWidget.h"
+  export *
+
+  module * { export * }
+}
+
+module ContactCenterMessagingWidget.Swift {
+  header "ContactCenterMessagingWidget-Swift.h"
+  requires objc
+}

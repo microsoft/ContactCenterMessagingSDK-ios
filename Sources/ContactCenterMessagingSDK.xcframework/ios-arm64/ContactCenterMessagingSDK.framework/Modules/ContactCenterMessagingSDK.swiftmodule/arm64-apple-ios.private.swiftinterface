@@ -1,0 +1,375 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ContactCenterMessagingSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+@_exported import ContactCenterMessagingSDK
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class LCWAgentStatusAPI : ContactCenterMessagingSDK.LCWResponse {
+  @objc deinit
+}
+public enum ConversationState : Swift.Int {
+  case Closed
+  case Prechat
+  case Loading
+  case ReconnectChat
+  case OutOfOffic
+  case ProactiveChat
+  case Active
+  case InActive
+  case PostchatLoading
+  case Postchat
+  case Error
+  case NetworkError
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class LiveChatMessaging : ObjectiveC.NSObject {
+  public static let shared: ContactCenterMessagingSDK.LiveChatMessaging
+  public func initialize(omniChannelConfig: ContactCenterMessagingSDK.LCWOmniChannelConfigRequest, chatSDKconfig: ContactCenterMessagingSDK.LCWChatSDKConfigRequest?, initializeChatConfig: ContactCenterMessagingSDK.LCWInitializeParamsRequest?, authToken: Swift.String?, environment: Swift.String)
+  public func initOmnichannelChatSDK(_ viewController: UIKit.UIViewController, _ completionHandler: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func getAgentAvailability(_ optionalParams: ContactCenterMessagingSDK.LCWAgentAvailabilityRequest? = nil, _ completionHandler: @escaping ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func onNewMessage(_ params: ContactCenterMessagingSDK.LCWGetMessageRequest, completionBlock: @escaping ((_ success: ContactCenterMessagingSDK.LCWGetMessageResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func startChat(_ optionalParams: ContactCenterMessagingSDK.LCWStartChatRequest? = nil, _ completionHandler: @escaping ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func getAgentTypingStatus(completionHandler: @escaping ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func sendCustomerTyping(completionHandler: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func onAgentEndSession(completionHandler: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func getLCWLiveChatConfig(_ optionalParams: ContactCenterMessagingSDK.LCWInitializeParamsRequest, completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func getPreChatSurvey(completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func sendMessage(params: ContactCenterMessagingSDK.LCWSendMessageRequest, id: Swift.String, _ completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func getAllMessages(completionHandler: @escaping ((_ success: [ContactCenterMessagingSDK.LCWGetMessageResponse]?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func getLiveChatTranscript(_ optionalParams: ContactCenterMessagingSDK.LCWLiveChatContextRequest?, completionHandler: @escaping ((_ success: [ContactCenterMessagingSDK.LCWGetMessageResponse]?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func getLiveChatRawTranscript(_ optionalParams: ContactCenterMessagingSDK.LCWLiveChatContextRequest?, completionHandler: @escaping ((_ success: Swift.String?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func getConversationDetails(_ optionalParams: ContactCenterMessagingSDK.LCWLiveChatContextRequest? = nil, completionHandler: @escaping ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void))
+  public func getDataMaskingRules(completionHandler: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func uploadFileAttachment(params: ContactCenterMessagingSDK.LCWFileInfoRequest, id: Swift.String = "", completionHandler: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func downloadFileAttachment(params: ContactCenterMessagingSDK.LCWFileMetadataRequest, completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func getChatToken(_ optionalParams: ContactCenterMessagingSDK.LCWGetChatTokenRequest? = nil, completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func getChatReconnectContext(_ optionalParams: ContactCenterMessagingSDK.LCWChatReconnectOptionalParams? = nil, completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func callPostChatSurveyContext(completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func emailTranscriptCall(param: ContactCenterMessagingSDK.LCWEmailTranscriptRequest, optionalParam: ContactCenterMessagingSDK.LCWLiveChatContextRequest? = nil, completionHandler: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func telemetryConfigEvent(logLevel: Swift.String, payload: [Swift.String : Any])
+  public func telemetryLoadingEvent(logLevel: Swift.String, payload: [Swift.String : Any])
+  public func telemetryActionEvent(logLevel: Swift.String, payload: [Swift.String : Any])
+  public func addConversationDataToTelemetry(payload: [Swift.String : Any])
+  public func addSessionDataToTelemetry(payload: [Swift.String : Any])
+  public func setAPNSToken(tokenData: Swift.String)
+  public func getAPNSToken() -> Swift.String?
+  public func checkChatConfigAllDetailsAvailable() -> Swift.Bool
+  public func getVersion() -> Swift.String
+  public func getQAVersion() -> Swift.String
+  public func getEnvironment() -> Swift.String
+  public func isChatConfigReconnectBuilderFlagEnabled() -> Swift.Bool
+  public func setChatProgress(inProgress: Swift.Bool)
+  public func getChatProgress() -> Swift.Bool
+  public func getInitChatConfig() -> ContactCenterMessagingSDK.LCWInitializeParamsRequest?
+  public func getChatSDKConfig() -> ContactCenterMessagingSDK.LCWChatSDKConfigRequest?
+  public func getAuthToken() -> Swift.String?
+  public func setCustomContext(customContext: [Swift.String : Any])
+  public func getCustomContext() -> [Swift.String : Any]?
+  public func getMessageInstance() -> ContactCenterMessagingSDK.LCWGetMessageAPI
+  public func getEngageInstance() -> ContactCenterMessagingSDK.LCWEngage
+  public func getSendMessageInstance() -> ContactCenterMessagingSDK.LCWSendMessageAPI
+  public func getCustomerMessageInstance() -> ContactCenterMessagingSDK.LCWGetAllMessagesAPI
+  public func getWidgetId() -> Swift.String
+  public func setMessagingData(_ key: Swift.String, value: Any)
+  public func getCustomData(_ key: Swift.String) -> Any?
+  public func removeDataForKey(_ key: Swift.String)
+  public func getLiveChatContext() -> [Swift.String : Any]
+  public func getChimeParam() -> Swift.Bool
+  public func setChimeParam(selected: Swift.Bool)
+  public func setChatstate(state: ContactCenterMessagingSDK.ConversationState)
+  public func getChatState() -> ContactCenterMessagingSDK.ConversationState
+  public func setMinimizeState(selected: Swift.Bool)
+  public func getMinimizeState() -> Swift.Bool
+  public func setLiveChatContextSuccessCallback(completionBlock: @escaping (() -> Swift.Void))
+  public func getParseTranscriptChat(chatArray: [[Swift.String : Any]]) -> [ContactCenterMessagingSDK.LCWGetMessageResponse]
+  public func getAgentHiddenMessageHandler() -> ContactCenterMessagingSDK.AgentHiddenMessageHandler
+  public func getCustomerHiddenMessageHandler() -> ContactCenterMessagingSDK.CustomerHiddenMessageHandler
+  public func endOCSDKChat(completionBlock: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func resetAllData()
+  public func clearLastGetLiveChatContext()
+  public func removeReactNativeApp()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWFileUploadDownloadAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  open func downloadFileAttachment(params: ContactCenterMessagingSDK.LCWFileMetadataRequest, completionHandler: ((_ response: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWGetAllMessagesAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class SendMessageResponse : ContactCenterMessagingSDK.LCWResponse {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class LCWResponse : ObjectiveC.NSObject {
+  public func getResponse() -> [Swift.String : Any]?
+  public func getErrorMessage() -> Swift.String?
+  public func getErrorProperties() -> [Swift.String : Any]?
+  @objc deinit
+}
+public struct LCWFileMetadataRequest : Swift.Codable {
+  public var fileSharingProtocolType: Swift.Int64?
+  public var id: Swift.String
+  public var name: Swift.String?
+  public var size: Swift.Int64?
+  public var type: Swift.String
+  public var url: Swift.String?
+  public init(fileSharingProtocolType: Swift.Int64? = nil, id: Swift.String, name: Swift.String? = nil, size: Swift.Int64? = nil, type: Swift.String, url: Swift.String? = nil)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWFileInfoRequest : Swift.Codable {
+  public var data: Swift.String
+  public var name: Swift.String
+  public var size: Swift.Double
+  public var type: Swift.String
+  public init(data: Swift.String, name: Swift.String, size: Swift.Double, type: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class LCWEmailTranscriptAPI : ContactCenterMessagingSDK.LCWResponse {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class LCWCloseMessagingAPI : ContactCenterMessagingSDK.LCWResponse {
+  public func endChat(completionBlock: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  public func onAgentEndSession(completionBlock: ((_ success: ContactCenterMessagingSDK.LCWResponse?, _ error: ContactCenterMessagingSDK.LCWResponse?) -> Swift.Void)?)
+  @objc deinit
+}
+public struct LCWSendMessageRequest : Swift.Codable {
+  public var content: Swift.String
+  public var tags: [Swift.String]?
+  public var timestamp: Foundation.Date?
+  public var metadata: [Swift.String : Any]?
+  public init(content: Swift.String, tags: [Swift.String]?, timestamp: Foundation.Date?, metadata: [Swift.String : Any]?)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct LCWGetMessageRequest : Swift.Codable {
+  public var rehydrate: Swift.Bool
+  public init(rehydrate: Swift.Bool)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class LCWMessagingData {
+  public class func saveLivechatcontext(_ contextObject: [Swift.String : Any])
+  public class func getLivechatcontext() -> [Swift.String : Any]?
+  public class func saveLiveChatConfig(_ contextObject: [Swift.String : Any])
+  public class func getLiveChatConfig() -> [Swift.String : Any]?
+  public class func saveChatProgress(_ progress: Swift.Bool)
+  public class func getChatProgress() -> Swift.Bool
+  public class func customKey(_ key: Swift.String, _ value: Any?)
+  public class func getCustomKey(_ key: Swift.String) -> Any?
+  public class func removeKey(_ key: Swift.String)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWLiveChatConfigAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class LCWPreChatSurveyAPI : ContactCenterMessagingSDK.LCWResponse {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWEngage : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class LCWTypingEventsAPI : ContactCenterMessagingSDK.LCWResponse {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWDataMaskingRulesAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWGetMessageAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  public func abortGetRequest()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class LCWConversationDetailsAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  @objc deinit
+}
+public struct LCWEmailTranscriptRequest : Swift.Codable {
+  public var attachmentMessage: Swift.String
+  public var emailAddress: Swift.String
+  public var locale: Swift.String?
+  public init(attachmentMessage: Swift.String, emailAddress: Swift.String, locale: Swift.String? = nil)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWLiveChatContextRequest : Swift.Codable {
+  public var liveChatContext: [Swift.String : Any]?
+  public init(liveChatContext: [Swift.String : Any]? = nil)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct LCWAgentAvailabilityRequest : Swift.Codable {
+  public var preChatResponse: [Swift.String : Any]?
+  public var customContext: [Swift.String : Any]?
+  public var browser: Swift.String?
+  public var os: Swift.String?
+  public var locale: Swift.String?
+  public var device: Swift.String?
+  public var initContext: [Swift.String : Any]?
+  public var reconnectId: Swift.String?
+  public var portalContactId: Swift.String?
+  public init(preChatResponse: [Swift.String : Any]? = nil, customContext: [Swift.String : Any]? = nil, browser: Swift.String? = nil, os: Swift.String? = nil, locale: Swift.String? = nil, device: Swift.String? = nil, initContext: [Swift.String : Any]? = nil, reconnectId: Swift.String? = nil, portalContactId: Swift.String? = nil)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers @objc public class LCWGetMessageResponse : ContactCenterMessagingSDK.LCWResponse {
+  public var messageType: Swift.String?
+  public var additionalProperties: [Swift.String : Any]?
+  public var fileMetadata: ContactCenterMessagingSDK.LCWFileMetadataRequest?
+  public var content: Swift.String?
+  public var isFromTranscript: Swift.Bool
+  public var displayName: Swift.String?
+  public var attachments: [Swift.String]?
+  public var attachmentsContentType: Swift.String?
+  public var tags: [Swift.String]?
+  public var properties: [Swift.String : Any]?
+  public var timestamp: Swift.String?
+  public var suggestedActions: Swift.String?
+  public var actions: [Swift.String]?
+  public var attachmentLayout: Swift.String?
+  public var imageCardTitles: [Swift.Int : Swift.String]?
+  public var videoCardsData: [Swift.Int : ContactCenterMessagingSDK.VideoCardData]?
+  public var isLastMsg: Swift.Bool?
+  public var isActive: Swift.Bool?
+  public init()
+  public func getProperty(_ name: Swift.String) -> Swift.String?
+  public func addAdditionalProperty(_ name: Swift.String, _ andValue: Any)
+  public func getDicProperty(_ name: Swift.String) -> [Swift.String : Any]
+  @objc deinit
+}
+public struct Action : Swift.Codable {
+  public let type: Swift.String
+  public let title: Swift.String
+  public let value: Swift.String
+  public let displayText: Swift.String?
+  public let text: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SuggestedActions : Swift.Codable {
+  public let actions: [ContactCenterMessagingSDK.Action]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Content : Swift.Codable {
+  public let suggestedActions: ContactCenterMessagingSDK.SuggestedActions?
+  public let text: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VideoCardData {
+  public var title: Swift.String?
+  public var subtitle: Swift.String?
+  public var text: Swift.String?
+  public var buttons: [ContactCenterMessagingSDK.Action]
+  public init(title: Swift.String? = "", subtitle: Swift.String? = "", text: Swift.String? = "", buttons: [ContactCenterMessagingSDK.Action] = [])
+}
+@objc @_hasMissingDesignatedInitializers public class LCWSendMessageAPI : ContactCenterMessagingSDK.SendMessageResponse {
+  public init()
+  @objc deinit
+}
+public struct LCWDataMaskingSDKConfig : Swift.Codable {
+  public var disable: Swift.Bool
+  public var maskingCharacter: Swift.String?
+  public init(disable: Swift.Bool, maskingCharacter: Swift.String? = nil)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWTelemetrySDKConfig : Swift.Codable {
+  public var disable: Swift.Bool?
+  public init(disable: Swift.Bool? = false)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWPersistentChatConfig : Swift.Codable {
+  public var disable: Swift.Bool
+  public var tokenUpdateTime: Swift.String?
+  public init(disable: Swift.Bool, tokenUpdateTime: Swift.String? = nil)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWChatReconnectConfig : Swift.Codable {
+  public var disable: Swift.Bool
+  public init(disable: Swift.Bool)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWChatSDKConfigRequest : Swift.Codable {
+  public var dataMasking: ContactCenterMessagingSDK.LCWDataMaskingSDKConfig?
+  public var telemetry: ContactCenterMessagingSDK.LCWTelemetrySDKConfig?
+  public var persistentChat: ContactCenterMessagingSDK.LCWPersistentChatConfig?
+  public var chatReconnect: ContactCenterMessagingSDK.LCWChatReconnectConfig?
+  public init(dataMasking: ContactCenterMessagingSDK.LCWDataMaskingSDKConfig? = LCWDataMaskingSDKConfig(disable: true), telemetry: ContactCenterMessagingSDK.LCWTelemetrySDKConfig? = LCWTelemetrySDKConfig(disable: false), persistentChat: ContactCenterMessagingSDK.LCWPersistentChatConfig? = LCWPersistentChatConfig(disable: false), chatReconnect: ContactCenterMessagingSDK.LCWChatReconnectConfig? = LCWChatReconnectConfig(disable: false))
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWOmniChannelConfigRequest : Swift.Codable {
+  public let orgId: Swift.String?
+  public let orgUrl: Swift.String?
+  public let widgetId: Swift.String?
+  public init(orgId: Swift.String?, orgUrl: Swift.String?, widgetId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWInitializeParamsRequest : Swift.Codable {
+  public let sendCacheHeaders: Swift.Bool?
+  public let useRuntimeCache: Swift.Bool?
+  public init(sendCacheHeaders: Swift.Bool?, useRuntimeCache: Swift.Bool?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWStartChatRequest : Swift.Codable {
+  public var liveChatContext: [Swift.String : Any]?
+  public var preChatResponse: [Swift.String : Any]?
+  public var customContext: [Swift.String : Any]?
+  public var browser: Swift.String?
+  public var os: Swift.String?
+  public var locale: Swift.String?
+  public var device: Swift.String?
+  public var platform: Swift.String?
+  public var handle: Swift.String?
+  public var initContext: ContactCenterMessagingSDK.LCWInitializeParamsRequest?
+  public var reconnectId: Swift.String?
+  public var isProactiveChat: Swift.Bool?
+  public var latitude: Swift.String?
+  public var longitude: Swift.String?
+  public var portalContactId: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(liveChatContext: [Swift.String : Any]? = nil, preChatResponse: [Swift.String : Any]? = nil, customContext: [Swift.String : Any]? = nil, browser: Swift.String? = nil, os: Swift.String? = nil, locale: Swift.String? = nil, device: Swift.String? = nil, platform: Swift.String? = nil, handle: Swift.String? = nil, initContext: ContactCenterMessagingSDK.LCWInitializeParamsRequest? = nil, reconnectId: Swift.String? = nil, isProactiveChat: Swift.Bool? = nil, latitude: Swift.String? = nil, longitude: Swift.String? = nil, portalContactId: Swift.String? = nil)
+}
+public struct LCWGetChatTokenRequest : Swift.Codable {
+  public var refreshToken: Swift.Bool?
+  public init(refreshToken: Swift.Bool? = false)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LCWChatReconnectOptionalParams : Swift.Codable {
+  public var reconnectId: Swift.String?
+  public init(reconnectId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc @_hasMissingDesignatedInitializers public class LCWLiveChatTranscriptAPI : ContactCenterMessagingSDK.LCWResponse {
+  public init()
+  @objc deinit
+}
+extension ContactCenterMessagingSDK.ConversationState : Swift.Equatable {}
+extension ContactCenterMessagingSDK.ConversationState : Swift.Hashable {}
+extension ContactCenterMessagingSDK.ConversationState : Swift.RawRepresentable {}
