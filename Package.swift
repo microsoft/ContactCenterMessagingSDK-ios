@@ -16,8 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "ContactCenterMessagingSDK-ios",
-            dependencies: ["AdaptiveCards"],
-            exclude: ["ContactCenterMessagingApp"]),
+            dependencies: ["AdaptiveCards"]),
         .binaryTarget(
             name: "ContactCenterMessagingSDK",
             path: "./Sources/ContactCenterMessagingSDK.xcframework"),
