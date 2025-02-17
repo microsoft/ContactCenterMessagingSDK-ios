@@ -1,6 +1,3 @@
-// swift-tools-version: 6.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
@@ -13,10 +10,14 @@ let package = Package(
         .library(
             name: "ContactCenterMessagingSDK-ios",
             targets: ["ContactCenterMessagingSDK-ios", "ContactCenterMessagingSDK", "ContactCenterMessagingWidget","OmnichannelChatSDK"]),
+    ], dependencies: [
+        .package(url: "https://github.com/microsoft/AdaptiveCards.git", branch: "main")
     ],
     targets: [
         .target(
-            name: "ContactCenterMessagingSDK-ios"),
+            name: "ContactCenterMessagingSDK-ios",
+            dependencies: ["AdaptiveCards"],
+            exclude: ["ContactCenterMessagingApp"]),
         .binaryTarget(
             name: "ContactCenterMessagingSDK",
             path: "./Sources/ContactCenterMessagingSDK.xcframework"),
