@@ -24,7 +24,7 @@ let package = Package(
             dependencies: [.target(name: "ContactCenterMessagingSDK"),
                            .target(name: "ContactCenterMessagingWidget"),
                            .target(name: "OmnichannelChatSDK"),
-                           "AdaptiveCards"]),
+                           .product(name: "AdaptiveCards", package: "AdaptiveCards")]),
         .binaryTarget(
             name: "ContactCenterMessagingSDK",
             path: "./Sources/ContactCenterMessagingSDK.xcframework"),
