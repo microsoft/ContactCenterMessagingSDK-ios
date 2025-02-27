@@ -5,6 +5,10 @@ partners and customers. To receive support for your release, contact CC-Mobile-P
 with your release date and plans. Customers must have an agreement with the Contact Center team
 to guarantee timely support during the Preview period.
 
+## Sample Application 
+* You can refer to the sample application from here
+[ContactCenterMessagingApp](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/ContactCenterMessagingApp).
+
 ## Table of Contents
 
   * [About](#about)
@@ -89,34 +93,36 @@ to our roadmap.
 * Cocoapods
 
 ### Method One: Manual Integration
-1. Clone the repository ContactCenterMessagingSDK-ios.
-2. Go to the root folder of ContactCenterMessagingApp.
-3. Open the Podfile and either remove or comment out the following lines to prevent CocoaPods from automatically adding the SDK:
-    ```
-    $sdkVersion = 'v1.0.0' 
-    pod 'ContactCenterMessagingSDK', :podspec => 'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
-    ```
-4. Open the terminal and navigate to the root directory of the ContactCenterMessagingApp to install the pods for the Adaptivecards dependency. Execute the following command in the terminal.
+1. Go to the root folder of your app.
+2. Create podfile using command: pod install
+3. Open the Podfile and add 'AdaptiveCards' dependency. You can refer [podfile](https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/ContactCenterMessagingApp/Podfile) from sample app. 
+
+```pod 'AdaptiveCards'```
+
+5. Open the terminal and navigate to the root directory of your app to install the pods. Execute the following command in the terminal.
 command : pod install 
-5. Manually download the xcframeworks from releases section for desired version and add into to the root folder of ContactCenterMessagingApp. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
-6. Open ContactCenterMessagingApp.xcworkspace in xcode.
-7. Add the downloaded xcframeworks into the project. For adding XCframeworks 
-Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> Open 'Frameworks, Library and Embedded Content' -> Click on '+' icon -> Click on 'Add Other' -> Select 'Add Files' -> Select following xcframeworks
+6. Manually download the xcframeworks from releases[https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases] section for desired version and add to the root folder of your app.
+7. Open .xcworkspace in xcode.
+8. Add the downloaded xcframeworks into your project. For adding XCframeworks 
+Click on your project -> Select 'Targets' -> Select 'General' -> Open 'Frameworks, Library and Embedded Content' -> Click on '+' icon -> Click on 'Add Other' -> Select 'Add Files' -> Select following xcframeworks
         a. ContactCenterMessagingSDK.xcframework
         b. ContactCenterMessagingWidget.xcframework
         c. OmnichannelChatSDK.xcframework
-9. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
-10. Clean build and run the application.
+9. Clean build and run the application.
 
 ### Method Two: Cocoapods
-1. Clone the repository ContactCenterMessagingSDK-ios.
-2. Go to the root folder of ContactCenterMessagingApp.
-3. Open podfile and update ContactCenterMessagingSDK version.
-4. Open the terminal and navigate to the root directory of the ContactCenterMessagingApp to install the pods for the Adaptivecards dependency & ContactCenterMessagingSDKs. Execute the following command in the terminal.
+1. Go to the root folder of your app.
+2. Create podfile using command: pod install
+3. Open the Podfile. Add 'ContactCenterMessagingSDK' & 'AdaptiveCards' dependency. You can refer [podfile](https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/ContactCenterMessagingApp/Podfile) from sample app.
+   
+ ```$sdkVersion = '<ContactCenterMessagingSDK_Version>'
+    pod 'ContactCenterMessagingSDK', :podspec =>  'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
+    pod 'AdaptiveCards'
+ ```
+4. Open the terminal and navigate to the root directory of your app to install the pods. Execute the following command in the terminal.
 command : pod install
-5. Open ContactCenterMessagingApp.xcworkspace in xcode.
-6. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
-7. Clean build and run the application.
+5. Open .xcworkspace in xcode.
+6. Clean build and run the application.
 
 ### Instructions for Using the Chat Feature in the Sample App:
 1. Paste Your Script (taken from the Chat Workstream Page) or Add the Required Information:
