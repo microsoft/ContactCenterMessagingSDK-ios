@@ -32,3 +32,23 @@ command : pod install
 6. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
 7. Clean build and run the application.
 
+
+### Instructions for Using the Chat Feature in the Sample App:
+1. Paste Your Script (taken from the Chat Workstream Page) or Add the Required Information:
+
+In your app’s landing screen, you will find input fields where you need to enter:
+orgId
+orgUrl
+widgetId
+
+Alternatively, you can paste a script, which will automatically fill in these details for you.
+
+2. Click on the "Let's Chat" Button:
+Once you've entered the required information (or pasted the script), look for a button labeled "Let's Chat" on your screen.
+Tap on this button to initiate the chat. The app will connect to the specified chat system and load the widget for you.
+
+3.Start Interacting with the Chat:
+After clicking the button, you will see the chat interface appear on the screen.
+You can now type messages, send media, or interact with the chat in real-time. 
+The app will allow you to communicate with customer support or any automated services available.
+
