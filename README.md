@@ -35,7 +35,6 @@ to guarantee timely support during the Preview period.
     + [sendMessage](#sendmessage)
     + [getAllMessages](#getallmessages)
     + [getLiveChatTranscript](#getlivechattranscript)
-    + [getLiveChatRawTranscript](#getlivechatrawtranscript)
     + [getConversationDetails](#getconversationdetails)
     + [getDataMaskingRules](#getdatamaskingrules)
     + [uploadFileAttachment](#uploadfileattachment)
@@ -601,40 +600,6 @@ LiveChatMessaging.shared.getLiveChatTranscript(chatContextRequest) { (success, e
         print("Error: \(errorMsg)")
     }
 }
-```
-
-
-### getLiveChatRawTranscript
-This API is used to retrieve the raw live chat transcript. It takes optional parameters for the request and provides a completion handler to handle the response.
-#### Method
-```objc
-public func getLiveChatRawTranscript(_ optionalParams: LCWLiveChatContextRequest?, completionHandler: @escaping ((_ success: String?, _ error: LCWResponse?) -> Void))
-```
-#### Parameters
-* `optionalParams`: An optional parameter of type LCWLiveChatContextRequest. This parameter can be used to pass additional request details.
-  * `liveChatContext`: A dictionary containing the live chat context.
-* `completionHandler`: An optional closure that is called when the API call completes. It has two parameters:
-  * `success`: An optional LCWResponse object that contains the details of the successful response.
-  * `error`: An optional LCWResponse object that contains the details of the error response.
-#### Example
-```objc
-public struct LCWLiveChatContextRequest {
-    public var liveChatContext: [String: Any]?
-}
- 
-let chatContextRequest = LCWLiveChatContextRequest(liveChatContext: ["contextKey": "contextValue"])
-
-LiveChatMessaging.shared.getLiveChatRawTranscript(chatContextRequest) { (success, error) in
-        if let successResponse = success, let dictSuccess = successResponse..getResponse() {
-        // Handle success
-        print(" Raw chat transcript: \(dictSuccess)")
-    } else if let errorResponse = error, let errorMsg = errorResponse. getErrorMessage() {
-        // Handle error
-        print("Error: \(errorMsg)")
-    }
-}
-```
-
 
 ### getConversationDetails
 This API is used to retrieve the details of a conversation. It takes optional parameters for the request and provides a completion handler to handle the response.
@@ -692,7 +657,7 @@ LiveChatMessaging.shared.getDataMaskingRules { (success, error) in
 ```
 
 ### uploadFileAttachment
-This API is used to upload a file attachment in the LiveChatMessaging.shared. It takes parameters for the file information, a unique identifier, and provides a completion handler to handle the response.
+This API is used to upload a file attachment. It takes parameters for the file information, a unique identifier, and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func uploadFileAttachment(params: LCWFileInfoRequest, id: String = "", completionHandler: ((_ success: LCWResponse?, _ error: LCWResponse?) -> Void)?)
