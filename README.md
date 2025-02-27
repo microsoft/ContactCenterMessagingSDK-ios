@@ -125,7 +125,7 @@ command : pod install
 
 ## Initializing
 ### Initialize ContactCenterMessagingSDK
-You need to initialize the Omnichannel SDK with your omnichannel credentials and desired settings before doing any other operations. You can do this via initialize API. You can call this api using LiveChatMessaging class from ContactCenterMessagingSDK framework, either at startup, or at the desired point in your application flow. 
+You need to initialize the contactCenterMessagingSDk with your omnichannel credentials and desired settings before doing any other operations. You can do this via initialize API. You can call this api using LiveChatMessaging class from ContactCenterMessagingSDK framework, either at startup, or at the desired point in your application flow. 
 
 omniChannelConfig is mandatory. This includes your org details and other optional parameters that dictate chat behavior and what details are passed to the Agent. A detailed list of available parameters is below.
 
@@ -208,7 +208,7 @@ For errors in sendMessages or uploadFileAttachment, identify the unsent message 
 ```
 
 ### initOmnichannelChatSDK
-This API is used to initialize the OmnichannelChatSDK. It requires a view controller object and provides a completion handler to handle the response.
+This API is used to initialize the Omnichannel SDK. It requires a view controller object and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func initOmnichannelChatSDK(_ viewController: UIViewController, _ completionHandler: ((_ success: LCWResponse?, _ error: LCWResponse?) -> Void)?)
