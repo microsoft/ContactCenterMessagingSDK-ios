@@ -781,7 +781,7 @@ LiveChatMessaging.shared.getChatToken(chatTokenRequest) { (response, error) in
 ```
 
 ### emailTranscriptCall
-This API is used to email the chat transcript in the LiveChatMessaging.shared. It takes parameters for the email request, optional live chat context, and provides a completion handler to handle the response.
+This API is used to email the chat transcript. It takes parameters for the email request, optional live chat context, and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func emailTranscriptCall(param: LCWEmailTranscriptRequest, optionalParam: LCWLiveChatContextRequest? = nil, completionHandler: ((_ success: LCWResponse?, _ error: LCWResponse?) -> Void)?)
