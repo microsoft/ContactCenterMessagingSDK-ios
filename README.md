@@ -96,8 +96,7 @@ to our roadmap.
 1. Go to the root folder of your app.
 2. Create podfile using command: pod install
 3. Open the Podfile and add 'AdaptiveCards' dependency. You can refer [podfile](https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/ContactCenterMessagingApp/Podfile) from sample app. 
-```pod 'AdaptiveCards'
-```
+```pod 'AdaptiveCards'```
 4. Open the terminal and navigate to the root directory of your app to install the pods. Execute the following command in the terminal.
 command : pod install 
 5. Manually download the xcframeworks from releases[https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases] section for desired version and add into to the root folder of your app. 
