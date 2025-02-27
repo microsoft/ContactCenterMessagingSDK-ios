@@ -115,9 +115,9 @@ Click on your project -> Select 'Targets' -> Select 'General' -> Open 'Framework
 2. Create podfile using command: pod install
 3. Open the Podfile. Add 'ContactCenterMessagingSDK' & 'AdaptiveCards' dependency. You can refer [podfile](https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/ContactCenterMessagingApp/Podfile) from sample app.
    
- ```pod 'AdaptiveCards'
-    $sdkVersion = '<ContactCenterMessagingSDK_Version>'
+ ```$sdkVersion = '<ContactCenterMessagingSDK_Version>'
     pod 'ContactCenterMessagingSDK', :podspec =>  'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
+    pod 'AdaptiveCards'
  ```
 4. Open the terminal and navigate to the root directory of your app to install the pods. Execute the following command in the terminal.
 command : pod install
