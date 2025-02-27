@@ -125,7 +125,7 @@ command : pod install
 6. Clean build and run the application.
 
 ## Initializing
-### InitOmnichannelChatSDK
+### Initialize ContactCenterMessagingSDK
 You need to initialize the Omnichannel SDK with your omnichannel credentials and desired settings before doing any other operations. You can do this via initialize API. You can call this api using LiveChatMessaging class from ContactCenterMessagingSDK framework, either at startup, or at the desired point in your application flow. 
 
 omniChannelConfig is mandatory. This includes your org details and other optional parameters that dictate chat behavior and what details are passed to the Agent. A detailed list of available parameters is below.
@@ -222,7 +222,7 @@ public func initOmnichannelChatSDK(_ viewController: UIViewController, _ complet
 #### Example
 ```objc
 let viewController = UIViewController()
-LiveChatWidgetCore.initOmnichannelChatSDK(viewController) {(success, error) in
+LiveChatMessaging.shared.initOmnichannelChatSDK(viewController) {(success, error) in
     if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print("Initialization successful: \(dictSuccess)")
@@ -268,7 +268,7 @@ let optionalParams = LCWAgentAvailabilityRequest(
     portalContactId: "67890"
 )
 
-LiveChatWidgetCore.getAgentAvailability(optionalParams) { (success, error) in
+LiveChatMessaging.shared.getAgentAvailability(optionalParams) { (success, error) in
      if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         	// Handle success
         	print(" Agent availability: \(dictSuccess)")
@@ -294,7 +294,7 @@ public func onNewMessage(_ params: LCWGetMessageRequest, completionBlock: @escap
 #### Example
 ```objc
 let messageRequest = LCWGetMessageRequest(rehydrate: true)
-LiveChatWidgetCore.onNewMessage(messageRequest) { (success, error) in
+LiveChatMessaging.shared.onNewMessage(messageRequest) { (success, error) in
   if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" New message received: \(dictSuccess)")
@@ -351,7 +351,7 @@ let startChatRequest = LCWStartChatRequest(
     portalContactId: "67890"
 )
 
-LiveChatWidgetCore.startChat(startChatRequest) { (success, error) in
+LiveChatMessaging.shared.startChat(startChatRequest) { (success, error) in
        if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Chat started successfully: \(dictSuccess)")
@@ -376,7 +376,7 @@ public func getAgentTypingStatus(completionHandler: @escaping ((_ success: LCWRe
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
-LiveChatWidgetCore.getAgentTypingStatus { (success, error) in
+LiveChatMessaging.shared.getAgentTypingStatus { (success, error) in
 
   if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
@@ -404,7 +404,7 @@ public func sendCustomerTyping(completionHandler: ((_ success: LCWResponse?, _ e
 
 #### Example
 ```objc
-LiveChatWidgetCore.sendCustomerTyping { (success, error) in
+LiveChatMessaging.shared.sendCustomerTyping { (success, error) in
         if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Customer typing status sent: \(dictSuccess)")
@@ -430,7 +430,7 @@ public func onAgentEndSession(completionHandler: ((_ success: LCWResponse?, _ er
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
-LiveChatWidgetCore.onAgentEndSession { (success, error) in
+LiveChatMessaging.shared.onAgentEndSession { (success, error) in
          if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Agent ended session: \(dictSuccess)")
@@ -444,7 +444,7 @@ LiveChatWidgetCore.onAgentEndSession { (success, error) in
 
 
 ### getLCWLiveChatConfig
-This API is used to retrieve the live chat configuration in the LiveChatWidgetCore. It takes optional parameters for the request and provides a completion handler to handle the response. 
+This API is used to retrieve the live chat configuration. It takes optional parameters for the request and provides a completion handler to handle the response. 
 The ChatConfig contains many parameters defined in the Customer Service Admin Center.
 #### Method
 ```objc
@@ -470,7 +470,7 @@ public struct LCWInitializeParamsRequest: Codable {
 }
 
 let initParams = LCWInitializeParamsRequest(sendCacheHeaders: true, useRuntimeCache: false)
-LiveChatWidgetCore.getLCWLiveChatConfig(initParams) { (response, error) in
+LiveChatMessaging.shared.getLCWLiveChatConfig(initParams) { (response, error) in
            if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Live chat configuration: \(dictSuccess)")
@@ -493,7 +493,7 @@ public func getPreChatSurvey(completionHandler: ((_ response: LCWResponse?, _ er
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
-LiveChatWidgetCore.getPreChatSurvey { (response, error) in
+LiveChatMessaging.shared.getPreChatSurvey { (response, error) in
           if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Pre-chat survey retrieved: \(dictSuccess)")
@@ -537,7 +537,7 @@ let messageRequest = LCWSendMessageRequest(
 )
 let uniqueId = "12345"
 
-LiveChatWidgetCore.sendMessage(params: messageRequest, id: uniqueId) { (response, error) in
+LiveChatMessaging.shared.sendMessage(params: messageRequest, id: uniqueId) { (response, error) in
        if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Message sent successfully: \(dictSuccess)")
@@ -560,7 +560,7 @@ public func getAllMessages(completionHandler: @escaping ((_ success: [LCWGetMess
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
-LiveChatWidgetCore.getAllMessages { (success, error) in
+LiveChatMessaging.shared.getAllMessages { (success, error) in
       if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Message: \(dictSuccess)")
@@ -573,7 +573,7 @@ LiveChatWidgetCore.getAllMessages { (success, error) in
 ```
 
 ### getLiveChatTranscript
-This API is used to retrieve the live chat transcript in the LiveChatWidgetCore. It takes optional parameters for the request and provides a completion handler to handle the response.
+This API is used to retrieve the live chat transcript. It takes optional parameters for the request and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func getLiveChatTranscript(_ optionalParams: LCWLiveChatContextRequest?, completionHandler: @escaping ((_ success: [LCWGetMessageResponse]?, _ error: LCWResponse?) -> Void))
@@ -592,7 +592,7 @@ public struct LCWLiveChatContextRequest {
  
 let chatContextRequest = LCWLiveChatContextRequest(liveChatContext: ["contextKey": "contextValue"])
 
-LiveChatWidgetCore.getLiveChatTranscript(chatContextRequest) { (success, error) in
+LiveChatMessaging.shared.getLiveChatTranscript(chatContextRequest) { (success, error) in
       if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Messages transcript: \(dictSuccess)")
@@ -605,7 +605,7 @@ LiveChatWidgetCore.getLiveChatTranscript(chatContextRequest) { (success, error) 
 
 
 ### getLiveChatRawTranscript
-This API is used to retrieve the raw live chat transcript in the LiveChatWidgetCore. It takes optional parameters for the request and provides a completion handler to handle the response.
+This API is used to retrieve the raw live chat transcript. It takes optional parameters for the request and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func getLiveChatRawTranscript(_ optionalParams: LCWLiveChatContextRequest?, completionHandler: @escaping ((_ success: String?, _ error: LCWResponse?) -> Void))
@@ -624,7 +624,7 @@ public struct LCWLiveChatContextRequest {
  
 let chatContextRequest = LCWLiveChatContextRequest(liveChatContext: ["contextKey": "contextValue"])
 
-LiveChatWidgetCore.getLiveChatRawTranscript(chatContextRequest) { (success, error) in
+LiveChatMessaging.shared.getLiveChatRawTranscript(chatContextRequest) { (success, error) in
         if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Raw chat transcript: \(dictSuccess)")
@@ -656,7 +656,7 @@ public struct LCWLiveChatContextRequest: Codable {
  
 let conversationContextRequest = LCWLiveChatContextRequest(liveChatContext: ["contextKey": "contextValue"])
 
-LiveChatWidgetCore.getConversationDetails(conversationContextRequest) { (success, error) in
+LiveChatMessaging.shared.getConversationDetails(conversationContextRequest) { (success, error) in
           if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Conversation details: \(dictSuccess)")
@@ -669,7 +669,7 @@ LiveChatWidgetCore.getConversationDetails(conversationContextRequest) { (success
 
 
 ### getDataMaskingRules
-This API is used to retrieve the data masking rules in the LiveChatWidgetCore. It provides a completion handler to handle the response.
+This API is used to retrieve the data masking rules. It provides a completion handler to handle the response.
 #### Method
 ```objc
 public func getDataMaskingRules(completionHandler: ((_ success: LCWResponse?, _ error: LCWResponse?) -> Void)?)
@@ -680,7 +680,7 @@ public func getDataMaskingRules(completionHandler: ((_ success: LCWResponse?, _ 
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
-LiveChatWidgetCore.getDataMaskingRules { (success, error) in
+LiveChatMessaging.shared.getDataMaskingRules { (success, error) in
         if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" Data masking rules retrieved: \(dictSuccess)")
@@ -692,7 +692,7 @@ LiveChatWidgetCore.getDataMaskingRules { (success, error) in
 ```
 
 ### uploadFileAttachment
-This API is used to upload a file attachment in the LiveChatWidgetCore. It takes parameters for the file information, a unique identifier, and provides a completion handler to handle the response.
+This API is used to upload a file attachment in the LiveChatMessaging.shared. It takes parameters for the file information, a unique identifier, and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func uploadFileAttachment(params: LCWFileInfoRequest, id: String = "", completionHandler: ((_ success: LCWResponse?, _ error: LCWResponse?) -> Void)?)
@@ -724,7 +724,7 @@ let fileInfoRequest = LCWFileInfoRequest(
 )
 let uniqueId = "12345"
 
-LiveChatWidgetCore.uploadFileAttachment(params: fileInfoRequest, id: uniqueId) { (success, error) in
+LiveChatMessaging.shared.uploadFileAttachment(params: fileInfoRequest, id: uniqueId) { (success, error) in
     if let successResponse = success {
         // Handle success
         print("File uploaded successfully: \(successResponse)")
@@ -736,7 +736,7 @@ LiveChatWidgetCore.uploadFileAttachment(params: fileInfoRequest, id: uniqueId) {
 ```
 
 ### downloadFileAttachment
-This API is used to download a file attachment in the LiveChatWidgetCore. It takes parameters for the file metadata and provides a completion handler to handle the response.
+This API is used to download a file attachment. It takes parameters for the file metadata and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func downloadFileAttachment(params: LCWFileMetadataRequest, completionHandler: ((_ response: LCWResponse?, _ error: LCWResponse?) -> Void)?)
@@ -772,7 +772,7 @@ let fileMetadataRequest = LCWFileMetadataRequest(
     url: "https://example.com/file123"
 )
 
-LiveChatWidgetCore.downloadFileAttachment(params: fileMetadataRequest) { (response, error) in
+LiveChatMessaging.shared.downloadFileAttachment(params: fileMetadataRequest) { (response, error) in
            if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
         print(" File downloaded successfully: \(dictSuccess)")
@@ -784,7 +784,7 @@ LiveChatWidgetCore.downloadFileAttachment(params: fileMetadataRequest) { (respon
 ```
 
 ### getChatToken
-This API is used to retrieve a chat token in the LiveChatWidgetCore. It takes optional parameters for the request and provides a completion handler to handle the response.
+This API is used to retrieve a chat token. It takes optional parameters for the request and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func getChatToken(_ optionalParams: LCWGetChatTokenRequest? = nil, completionHandler: ((_ response: LCWResponse?, _ error: LCWResponse?) -> Void)?)
@@ -803,7 +803,7 @@ public struct LCWGetChatTokenRequest: Codable {
 
 let chatTokenRequest = LCWGetChatTokenRequest(refreshToken: true)
 
-LiveChatWidgetCore.getChatToken(chatTokenRequest) { (response, error) in
+LiveChatMessaging.shared.getChatToken(chatTokenRequest) { (response, error) in
     
          if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
@@ -816,7 +816,7 @@ LiveChatWidgetCore.getChatToken(chatTokenRequest) { (response, error) in
 ```
 
 ### emailTranscriptCall
-This API is used to email the chat transcript in the LiveChatWidgetCore. It takes parameters for the email request, optional live chat context, and provides a completion handler to handle the response.
+This API is used to email the chat transcript in the LiveChatMessaging.shared. It takes parameters for the email request, optional live chat context, and provides a completion handler to handle the response.
 #### Method
 ```objc
 public func emailTranscriptCall(param: LCWEmailTranscriptRequest, optionalParam: LCWLiveChatContextRequest? = nil, completionHandler: ((_ success: LCWResponse?, _ error: LCWResponse?) -> Void)?)
@@ -850,7 +850,7 @@ let emailRequest = LCWEmailTranscriptRequest(
 )
 let liveChatContext = LCWLiveChatContextRequest(liveChatContext: ["contextKey": "contextValue"])
 
-LiveChatWidgetCore.emailTranscriptCall(param: emailRequest, optionalParam: liveChatContext) { (success, error) in
+LiveChatMessaging.shared.emailTranscriptCall(param: emailRequest, optionalParam: liveChatContext) { (success, error) in
  
         if let successResponse = success, let dictSuccess = successResponse..getResponse() {
         // Handle success
@@ -866,44 +866,21 @@ LiveChatWidgetCore.emailTranscriptCall(param: emailRequest, optionalParam: liveC
 Ends the current Omnichannel SDK chat session.
 #### Method
 ```objc
-endOCSDKChat { (success, error) in
+public func endOCSDKChat(completionBlock: ((_ success: LCWResponse?, _ error : LCWResponse?) -> Void)?)
+```
+#### Parameters
+* `completionHandler`: An optional closure that is called when the API call completes. It has two parameters:
+  * `success`: An optional LCWResponse object that contains the details of the successful response.
+  * `error`: An optional LCWResponse object that contains the details of the error response.
+#### Example
+```objc
+ LiveChatMessaging.shared.endOCSDKChat { (success, error) in
     if let successResponse = success {
         // Handle success
     } else if let errorResponse = error {
         // Handle error
     }
-}
-```
-#### Parameters
-* `completionHandler`: An optional closure that is called when the API call completes. It has two parameters:
-  * `success`: An optional LCWResponse object that contains the details of the successful response.
-  * `error`: An optional LCWResponse object that contains the details of the error response.
-#### Example
-```objc
- 
-```
-
-### downloadFileAttachment
-...
-#### Method
-```objc
- 
-```
-#### Parameters
-* `completionHandler`: An optional closure that is called when the API call completes. It has two parameters:
-  * `success`: An optional LCWResponse object that contains the details of the successful response.
-  * `error`: An optional LCWResponse object that contains the details of the error response.
-#### Example
-```objc
-endOCSDKChat { (success, error) in
-        if let successResponse = success, let dictSuccess = successResponse..getResponse() {
-        // Handle success
-        print(" Chat ended successfully:  \(dictSuccess)")
-    } else if let errorResponse = error, let errorMsg = errorResponse. getErrorMessage() {
-        // Handle error
-        print("Error: \(errorMsg)")
-    }
-}
+ }
 ```
 
 ## Contributing
