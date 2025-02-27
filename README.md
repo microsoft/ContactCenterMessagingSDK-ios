@@ -124,28 +124,9 @@ command : pod install
 5. Open .xcworkspace in xcode.
 6. Clean build and run the application.
 
-### Instructions for Using the Chat Feature in the Sample App:
-1. Paste Your Script (taken from the Chat Workstream Page) or Add the Required Information:
-
-In your app’s landing screen, you will find input fields where you need to enter:
-orgId
-orgUrl
-widgetId
-
-Alternatively, you can paste a script, which will automatically fill in these details for you.
-
-2. Click on the "Let's Chat" Button:
-Once you've entered the required information (or pasted the script), look for a button labeled "Let's Chat" on your screen.
-Tap on this button to initiate the chat. The app will connect to the specified chat system and load the widget for you.
-
-3.Start Interacting with the Chat:
-After clicking the button, you will see the chat interface appear on the screen.
-You can now type messages, send media, or interact with the chat in real-time. 
-The app will allow you to communicate with customer support or any automated services available.
-
 ## Initializing
-### InitOmnichannelChatSDK API
-You need to initialize the Omnichannel SDK with your omnichannel credentials and desired settings before doing any other operations. You can do this via InitOmnichannelChatSDK API. You can call this api using LiveChatMessaging class from ContactCenterMessagingSDK framework, either at startup, or at the desired point in your application flow. 
+### InitOmnichannelChatSDK
+You need to initialize the Omnichannel SDK with your omnichannel credentials and desired settings before doing any other operations. You can do this via initialize API. You can call this api using LiveChatMessaging class from ContactCenterMessagingSDK framework, either at startup, or at the desired point in your application flow. 
 
 omniChannelConfig is mandatory. This includes your org details and other optional parameters that dictate chat behavior and what details are passed to the Agent. A detailed list of available parameters is below.
 
