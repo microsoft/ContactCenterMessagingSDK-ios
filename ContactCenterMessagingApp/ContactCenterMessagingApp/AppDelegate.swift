@@ -18,33 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Request notification authorization
+        // Request push notification authorization
         registerForPushNotifications(application: application)
         
         return true
-    }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    // Handle successful registration for remote notifications
-   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-       let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-       print("Device token:(token) :",token)
-       // Send the device token to your server for push notification handling
-       UserDefaults.standard.set(token, forKey: "FirebaseFCMToken")
-       UserDefaults.standard.synchronize()
-
-   }
-   // Handle unsuccessful registration for remote notifications
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register for remote notifications: \\(error.localizedDescription)")
-    }
-   
-    // Handle notification when the app is in the foreground
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // Handle the notification presentation here
-        completionHandler([.banner,.badge,.list])
     }
     
     private func registerForPushNotifications(application: UIApplication) {
@@ -59,8 +36,37 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             }
         }
     }
+}
+
+// MARK: - Push Notification Delegates
+extension AppDelegate: UNUserNotificationCenterDelegate {
     
-    // Handle receipt of remote notification while the app is in the background
+    // MARK: Handle Push Notification registration
+    // Handle successful registration for remote notifications
+   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+       let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+       print("Device token:(token) :",token)
+       // Send the device token to your server for push notification handling
+       UserDefaults.standard.set(token, forKey: "FirebaseFCMToken")
+       UserDefaults.standard.synchronize()
+
+   }
+    
+   // Handle unsuccessful registration for remote notifications
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for remote notifications: \\(error.localizedDescription)")
+    }
+   
+    // MARK: Handle Push Notification when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        // Handle the notification presentation here
+        completionHandler([]) // No push notitication will get shown as badge or banner or list when app is in foreground
+        
+//        completionHandler([.banner,.badge,.list]) // Uncomment this to show Push notitication as badge or banner or list when app is in foreground
+    }
+        
+    // MARK: Handle Push Notification when the app is in the background
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // Handle the received remote notification here
         // Print the notification payload
