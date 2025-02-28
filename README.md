@@ -100,7 +100,7 @@ to our roadmap.
 
 5. Open the terminal and navigate to the root directory of your app to install the pods. Execute the following command in the terminal.
 command : pod install 
-6. Manually download the xcframeworks from releases[https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases] section for desired version and add to the root folder of your app.
+6. Manually download the xcframeworks from [releases](https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases) section for desired version and add to the root folder of your app.
 7. Open .xcworkspace in xcode.
 8. Add the downloaded xcframeworks into your project. For adding XCframeworks 
 Click on your project -> Select 'Targets' -> Select 'General' -> Open 'Frameworks, Library and Embedded Content' -> Click on '+' icon -> Click on 'Add Other' -> Select 'Add Files' -> Select following xcframeworks
