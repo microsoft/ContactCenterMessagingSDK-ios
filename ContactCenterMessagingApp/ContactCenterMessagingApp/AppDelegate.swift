@@ -44,16 +44,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // MARK: Handle Push Notification registration
     // Handle successful registration for remote notifications
    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+       
        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
        print("Device token:(token) :",token)
        // Send the device token to your server for push notification handling
        UserDefaults.standard.set(token, forKey: "FirebaseFCMToken")
        UserDefaults.standard.synchronize()
-
    }
     
    // Handle unsuccessful registration for remote notifications
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
         print("Failed to register for remote notifications: \\(error.localizedDescription)")
     }
    
@@ -68,6 +69,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
     // MARK: Handle Push Notification when the app is in the background
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+      
         // Handle the received remote notification here
         // Print the notification payload
         print("Received remote notification: \(userInfo)")
