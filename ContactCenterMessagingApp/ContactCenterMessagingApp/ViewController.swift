@@ -111,7 +111,12 @@ class ViewController: UIViewController {
             showError()
             return
         }
-
+        
+        authTokenFinal = authTokenTextField.text ?? ""
+        widgetIdDataFinal = widgetIdTextField.text ?? ""
+        orgUrlDataFinal = orgUrlTextField.text ?? ""
+        orgIdDataFinal = orgIdTextField.text ?? ""
+        
         UserDefaults.standard.set(orgIdTextField.text ?? "", forKey: "orgIdData")
         UserDefaults.standard.set(orgUrlTextField.text ?? "", forKey: "orgUrlData")
         UserDefaults.standard.set(widgetIdTextField.text ?? "", forKey: "widgetIdData")
@@ -124,6 +129,10 @@ class ViewController: UIViewController {
             liveChatMessagingVC = launchMessagingViewController(delegate: self)
         }
         liveChatMessagingVC.modalPresentationStyle = .fullScreen
+        if let apnsToken = UserDefaults.standard.value(forKey: "APNSToken") as? String {
+            LiveChatMessaging.shared.setAPNSToken(tokenData: apnsToken)
+            print("APNS Token passed : ",LiveChatMessaging.shared.getAPNSToken() as Any)
+        }
         self.present(liveChatMessagingVC, animated: true, completion: nil)
     }
     
@@ -156,7 +165,9 @@ class ViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "orgIdData")
         UserDefaults.standard.removeObject(forKey: "orgUrlData")
         UserDefaults.standard.removeObject(forKey: "widgetIdData")
-        UserDefaults.standard.removeObject(forKey: "tokenAuth")
+        do {
+             try KeychainService.saveToken("", for: "tokenAuth")
+        } catch {}
     }
     
     @IBAction func actionAddDefaultCred(_ sender: Any) {

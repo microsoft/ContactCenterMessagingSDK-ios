@@ -72,6 +72,7 @@
 		DE0F847D997C111D3F0EAC13 /* Pods-LCWMessagingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCWMessagingApp.release.xcconfig"; path = "Target Support Files/Pods-LCWMessagingApp/Pods-LCWMessagingApp.release.xcconfig"; sourceTree = "<group>"; };
 		F6B84CA61B91FDE857726FA4 /* Pods_ContactCenterMessagingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactCenterMessagingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1117D0325E777E19284BA7 /* Pods-ContactCenterMessagingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactCenterMessagingApp.release.xcconfig"; path = "Target Support Files/Pods-ContactCenterMessagingApp/Pods-ContactCenterMessagingApp.release.xcconfig"; sourceTree = "<group>"; };
+		B7CD3DE22D71D1BB00B0952E /* ContactCenterMessagingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContactCenterMessagingApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 		B73CDD9D2C0DC9020052B61C /* ContactCenterMessagingApp */ = {
 			isa = PBXGroup;
 			children = (
+				B7CD3DE22D71D1BB00B0952E /* ContactCenterMessagingApp.entitlements */,
 				B773E4942C5150F1008F4FB8 /* AudioSoundFile.mp3 */,
 				B7BF1BE12C0E041600683424 /* ThemeFile.swift */,
 				B73CDD9E2C0DC9020052B61C /* AppDelegate.swift */,
@@ -536,6 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ContactCenterMessagingApp/ContactCenterMessagingApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.7;
