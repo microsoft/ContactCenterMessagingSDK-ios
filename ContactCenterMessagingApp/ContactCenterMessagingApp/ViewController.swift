@@ -129,8 +129,8 @@ class ViewController: UIViewController {
             liveChatMessagingVC = launchMessagingViewController(delegate: self)
         }
         liveChatMessagingVC.modalPresentationStyle = .fullScreen
-        if let fcmToken = UserDefaults.standard.value(forKey: "FirebaseFCMToken") as? String {
-            LiveChatMessaging.shared.setAPNSToken(tokenData: fcmToken)
+        if let apnsToken = UserDefaults.standard.value(forKey: "APNSToken") as? String {
+            LiveChatMessaging.shared.setAPNSToken(tokenData: apnsToken)
             print("APNS Token passed : ",LiveChatMessaging.shared.getAPNSToken() as Any)
         }
         self.present(liveChatMessagingVC, animated: true, completion: nil)

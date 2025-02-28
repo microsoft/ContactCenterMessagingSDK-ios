@@ -48,7 +48,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
        print("Device token:(token) :",token)
        // Send the device token to your server for push notification handling
-       UserDefaults.standard.set(token, forKey: "FirebaseFCMToken")
+       UserDefaults.standard.set(token, forKey: "APNSToken")
        UserDefaults.standard.synchronize()
    }
     
