@@ -898,7 +898,7 @@ curl --request PATCH \
   --header 'authorization: Bearer {{token}}' \
   --header 'content-type: application/json' \
   --data '{
-  "msdyn_name": "notificationHubConnectonString",
+  "msdyn_name": "notificationHubConnectionString",
   "msdyn_secretvalue": "{{azurenotificationhub_connection_string}}"
 }'
 ```
