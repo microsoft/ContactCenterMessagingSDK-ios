@@ -16,9 +16,8 @@ to guarantee timely support during the Preview period.
     + [Pre-Requisites](#pre-requisites)
     + [Method One: Manual Integration](#method-one-manual-integration)
     + [Method Two: Cocoapods](#method-two-cocoapods)
-    + [Instructions for Using the Chat Feature in the Sample App](#instructions-for-using-the-chat-feature-in-the-sample-app)
   * [Initializing](#initializing)
-    + [InitOmnichannelChatSDK API](#initomnichannelchatsdk-api)
+    + [Initialize ContactCenterMessagingSDK](initialize-contactcentermessagingsdk)
     + [Authentication](#authentication)
   * [Messaging Widget](#messaging-widget)
   * [Core Messaging Framework](#core-messaging-framework)
@@ -42,6 +41,9 @@ to guarantee timely support during the Preview period.
     + [getChatToken](#getchattoken)
     + [emailTranscriptCall](#emailtranscriptcall)
     + [endOCSDKChat](#endocsdkchat)
+  * [Push Notifications](#push-notifications)
+    + [Requirements](#requirements)
+    + [Contact Center Configuration](#contact-center-configuration)
   * [Contributing](#contributing)
   * [Trademarks](#trademarks)
 
@@ -600,6 +602,7 @@ LiveChatMessaging.shared.getLiveChatTranscript(chatContextRequest) { (success, e
         print("Error: \(errorMsg)")
     }
 }
+```
 
 ### getConversationDetails
 This API is used to retrieve the details of a conversation. It takes optional parameters for the request and provides a completion handler to handle the response.
@@ -846,6 +849,123 @@ public func endOCSDKChat(completionBlock: ((_ success: LCWResponse?, _ error : L
         // Handle error
     }
  }
+```
+
+## Push Notifications
+### Requirements
+Our iOS push notifications require accounts with [Azure Notification Hub](https://azure.microsoft.com/en-us/products/notification-hubs) and [Apple Push Notifications](https://developer.apple.com/notifications/).
+
+Instructions:
+* [Setting up Azure Notification Hub](https://learn.microsoft.com/en-us/azure/notification-hubs/create-notification-hub-portal) 
+* [Configuring Apple Push Notifications](https://learn.microsoft.com/en-us/azure/notification-hubs/configure-apple-push-notification-service)
+
+You will also need:
+* The **App Id** for the workstream used by your application.
+* The **org_url** for your Contact Center dataverse
+* An authorization **token** for your Contact Center dataverse API
+
+### Contact Center Configuration
+> ⚠️ Configuration is currently only available through the API. In the near future we will add a configuration
+interface to the Customer Service Admin Center. Your configurations will appear there when it is released
+and it will not require any changes on your part.
+
+> Configuration settings only need to be set once per workstream to enable both Android and iOS applications.
+
+1. Create a ChannelInstanceSecret entry:
+
+```bash
+curl --request POST \
+  --url https://{{org_url}}/api/data/v9.2/msdyn_channelinstancesecrets \
+  --header 'authorization: Bearer {{token}}' \
+  --header 'content-type: application/json' \
+  --data '{
+}'
+```
+
+2. Get ChannelInstance Secret Id (msdyn_channelinstancesecretid):
+
+```bash
+curl --request GET \
+  --url https://{{org_url}}/api/data/v9.2/msdyn_channelinstancesecrets \
+  --header 'authorization: Bearer {{token}}'
+```
+
+3. Update ChannelInstanceSecret entry with the following values:
+
+```bash
+curl --request PATCH \
+  --url 'https://{{org_url}}/api/data/v9.2/msdyn_channelinstancesecrets({{msdyn_channelinstancesecretid}})' \
+  --header 'authorization: Bearer {{token}}' \
+  --header 'content-type: application/json' \
+  --data '{
+  "msdyn_name": "notificationHubConnectonString",
+  "msdyn_secretvalue": "{{azurenotificationhub_connection_string}}"
+}'
+```
+
+4. Create an Azure Notification Hub entry:
+
+```bash
+curl --request POST \
+  --url https://{{org_url}}/api/data/v9.2/msdyn_azurenotificationhubs \
+  --header 'authorization: Bearer {{token}}' \
+  --header 'content-type: application/json' \
+  --data '{
+  
+}'
+```
+
+5. Get Azure Notification Hub Id (msdyn_azurenotificationhubid):
+
+```bash
+curl --request GET \
+  --url https://{{org_url}}/api/data/v9.2/msdyn_azurenotificationhubs \
+  --header 'authorization: Bearer {{token}}'
+```
+
+6. Update Azure Notification Hub entry with the following values:
+
+```bash
+curl --request PATCH \
+  --url 'https://{{org_url}}/api/data/v9.2/msdyn_azurenotificationhubs({{msdyn_azurenotificationhubid}})' \
+  --header 'authorization: Bearer {{token}}' \
+  --header 'content-type: application/json' \
+  --data '{
+  "msdyn_connectionstringid@odata.bind": "msdyn_channelinstancesecrets({{msdyn_channelinstancesecretid}})",
+  "msdyn_defaultnotificationbody": "Default Notification Content",
+  "msdyn_shownotificationtitle": false,
+  "msdyn_notificationtitle": null,
+  "msdyn_showmessagepreview": true,
+  "msdyn_azurenotificationhubname": "{{azurenotificationhub_name}}"
+}'
+```
+> **msdyn_defaultnotificationbody**: String, this is the default message shown in preview<br>
+**msdyn_shownotificationtitle**: Bool, defines whether or not we show a title above the preview message<br>
+**msdyn_notificationtitle**: String, the title shown if notificationtitle is true<br>
+**msdyn_showmessagepreview**: Bool, defines whether the rep's message is shown in the push notification. If
+false, defaultnotificationbody is always used. If true, defaultnotificationbody is only used when the agent
+sends a message without text, such as an attachment.<br>
+**msdyn_azurenotificationhubname**: String, your hub name in Azure Notification Hub.
+
+
+7. Get LiveChatConfig id (msdyn_livechatconfigid) entry linked to the workstream
+
+```bash
+curl --request GET \
+  --url 'https://{{org_url}}/api/data/v9.2/msdyn_livechatconfigs?%24filter=msdyn_widgetappid%2520eq%2520{{widget_app_id}}' \
+  --header 'authorization: Bearer {{token}}'
+```
+
+8. Link the Azure Notification Hub to the LiveChatConfig entry:
+
+```bash
+curl --request PATCH \
+  --url 'https://{{org_url}}/api/data/v9.2/msdyn_livechatconfigs({{msdyn_livechatconfigid}})' \
+  --header 'authorization: Bearer {{token}}' \
+  --header 'content-type: application/json' \
+  --data '{
+  "msdyn_azurenotificationhubid@odata.bind": "msdyn_azurenotificationhubs({{msdyn_azurenotificationhubid}})"
+}'
 ```
 
 ## Contributing
