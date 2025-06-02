@@ -26,7 +26,7 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 **Manual Integration 2: Add 'Adaptivecards' manually.**
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Manually download the xcframeworks from releases section for desired version and add into to the root folder of ContactCenterMessagingApp. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
-3. Manually download the zips for Adaptivecards from [Adaptivecards Frameworks](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/Sources/Adaptivecards)
+3. Manually download the zips for Adaptivecards from https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/Sources/Adaptivecards
 Download following .zip files
    * Adaptivecards_XCFrameworks.zip
    * FluentUI.xcframework.zip
