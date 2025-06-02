@@ -34,8 +34,9 @@ Download following .zip files
    * SVGKit.xcframework.zip
 Unzip all frameworks and add into the root folder of ContactCenterMessagingApp.
 5. Go to the root folder of ContactCenterMessagingApp.
-6. Open ContactCenterMessagingApp.xcodeproj in xcode.
-7. Add the downloaded ContactCenterMessaging & Adaptivecard xcframeworks into the project. For adding XCframeworks 
+6. Delete podfile & ContactCenterMessagingApp.xcworkspace.
+7. Open ContactCenterMessagingApp.xcodeproj in xcode.
+8. Add the downloaded ContactCenterMessaging & Adaptivecard xcframeworks into the project. For adding XCframeworks 
 Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> Open 'Frameworks, Library and Embedded Content' -> Click on '+' icon -> Click on 'Add Other' -> Select 'Add Files' -> Select following xcframeworks
         a. ContactCenterMessagingSDK.xcframework
         b. ContactCenterMessagingWidget.xcframework
@@ -44,9 +45,9 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
         e. FluentUI.xcframework
         f. CocoaLumberjack.xcframework
         g. SVGKit.xcframework
-8. Kindly check all frameworks are ‘Embed and Sign'
-9. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
-10. Clean build and run the application.
+9. Kindly check all frameworks are ‘Embed and Sign'
+10. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
+11. Clean build and run the application.
 
 **Integration through Cocoapods:**
 1. Clone the repository ContactCenterMessagingSDK-ios.
