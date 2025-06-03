@@ -2,7 +2,8 @@
 
 ** HOW TO RUN APPLICATION **
 
-**Manual Integration 1: Add 'Adaptivecards' using pods.**
+**Manual Integration 1: Add 'Adaptivecards' using pods.** 
+**Note: We always recommend adding Adaptivecards via pods only, so you will always receive the updated versions.**
 
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Go to the root folder of ContactCenterMessagingApp.
@@ -24,6 +25,8 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 10. Clean build and run the application.
 
 **Manual Integration 2: Add 'Adaptivecards' manually.**
+**Note: We will strive to keep the Adaptivecards XCFrameworks up to date, but they may occasionally lag behind the current versions.**
+
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Manually download the xcframeworks from releases section for desired version and add into to the root folder of ContactCenterMessagingApp. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
 3. Manually download the zips for Adaptivecards from https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/Sources/Adaptivecards
