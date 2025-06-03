@@ -1,5 +1,5 @@
 # Adaptivecards XCFrameworks
-
+# Version: 2.10.1
 ** Adaptivecards **
 Download and Unzip all XCframeworks. To run AdaptiveCards manually, you need to integrate following XCframeworks.
 
