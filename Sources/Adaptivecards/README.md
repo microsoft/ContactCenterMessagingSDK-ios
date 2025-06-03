@@ -1,5 +1,5 @@
-# Adaptivecards XCFrameworks
-# Version: 2.10.1
+# Adaptivecards XCFrameworks (Version: 2.10.1)
+
 ** Adaptivecards **
 Download and Unzip all XCframeworks. To run AdaptiveCards manually, you need to integrate following XCframeworks.
 
@@ -7,7 +7,6 @@ Download and Unzip all XCframeworks. To run AdaptiveCards manually, you need to 
 * FluentUI.xcframework
 * CocoaLumberjack.xcframework
 * SVGKit.xcframework
-
 
 ** HOW TO RUN APPLICATION **
 Manual Integration:
