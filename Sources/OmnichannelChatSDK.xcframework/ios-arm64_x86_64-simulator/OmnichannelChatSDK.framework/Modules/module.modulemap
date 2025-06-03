@@ -1,6 +1,0 @@
-framework module OmnichannelChatSDK {
-  umbrella header "OmnichannelChatSDK.h"
-  export *
-
-  module * { export * }
-}

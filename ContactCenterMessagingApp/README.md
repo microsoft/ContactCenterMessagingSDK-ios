@@ -2,7 +2,11 @@
 
 ** HOW TO RUN APPLICATION **
 
-**Manual Integration 1: Add 'Adaptivecards' using pods.**
+***Manual Integration***
+
+**1: Add 'ContactCenterMessagingSDK' manually & 'Adaptivecards' using pods.** 
+
+**Note: We always recommend adding Adaptivecards via pods only, so you will always receive the updated versions.**
 
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Go to the root folder of ContactCenterMessagingApp.
@@ -23,7 +27,10 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 9. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
 10. Clean build and run the application.
 
-**Manual Integration 2: Add 'Adaptivecards' manually.**
+**2: Add 'ContactCenterMessagingSDK' & 'Adaptivecards' manually.** 
+
+**Note: We will strive to keep the Adaptivecards XCFrameworks up to date, but they may occasionally lag behind the current versions.**
+
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Manually download the xcframeworks from releases section for desired version and add into to the root folder of ContactCenterMessagingApp. https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases
 3. Manually download the zips for Adaptivecards from https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/Sources/Adaptivecards
@@ -49,7 +56,12 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 10. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
 11. Clean build and run the application.
 
-**Integration through Cocoapods:**
+**3: Add 'Adaptivecards' manually.** 
+
+Refere below link to add only Adaptivecard xcframeworks.
+https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/Sources/Adaptivecards/README.md
+
+***Integration through Cocoapods:***
 1. Clone the repository ContactCenterMessagingSDK-ios.
 2. Go to the root folder of ContactCenterMessagingApp.
 3. Open podfile and update ContactCenterMessagingSDK version.
@@ -78,4 +90,3 @@ Tap on this button to initiate the chat. The app will connect to the specified c
 After clicking the button, you will see the chat interface appear on the screen.
 You can now type messages, send media, or interact with the chat in real-time. 
 The app will allow you to communicate with customer support or any automated services available.
-
