@@ -27,9 +27,7 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 9. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
 10. Clean build and run the application.
 
-**2: Add 'Adaptivecards' manually.** 
-Refere below link to add only Adaptivecard xcframeworks.
-https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/Sources/Adaptivecards/README.md
+**2: Add 'ContactCenterMessagingSDK' & 'Adaptivecards' manually.** 
 
 **Note: We will strive to keep the Adaptivecards XCFrameworks up to date, but they may occasionally lag behind the current versions.**
 
@@ -58,8 +56,9 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 10. Open ViewController class and add omnichannel credentials OrgID, OrgURL and WidgetId.
 11. Clean build and run the application.
 
-**2: Add 'Adaptivecards' manually.** 
-
+**3: Add 'Adaptivecards' manually.** 
+Refere below link to add only Adaptivecard xcframeworks.
+https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/Sources/Adaptivecards/README.md
 
 ***Integration through Cocoapods:***
 1. Clone the repository ContactCenterMessagingSDK-ios.
