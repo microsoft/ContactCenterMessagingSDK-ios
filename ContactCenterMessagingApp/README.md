@@ -57,6 +57,7 @@ Click on 'ContactCenterMessagingApp' -> Select 'Targets' -> Select 'General' -> 
 11. Clean build and run the application.
 
 **3: Add 'Adaptivecards' manually.** 
+
 Refere below link to add only Adaptivecard xcframeworks.
 https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/Sources/Adaptivecards/README.md
 
