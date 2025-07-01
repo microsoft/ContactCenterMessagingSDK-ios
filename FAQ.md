@@ -20,6 +20,10 @@
 
   You can refere this this link: https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/Sources/Adaptivecards/README.md
 
+*6. Where do i found Push Notification document?*
+
+  You can get details here: https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main?tab=readme-ov-file#push-notifications
+
 
 
 
