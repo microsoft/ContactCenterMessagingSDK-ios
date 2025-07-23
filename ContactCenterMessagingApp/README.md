@@ -12,7 +12,7 @@
 2. Go to the root folder of ContactCenterMessagingApp.
 3. Open the Podfile and either remove or comment out the following lines to prevent CocoaPods from automatically adding the SDK:
     ```
-    $sdkVersion = 'v1.1.0' 
+    $sdkVersion = 'v1.1.1' 
     pod 'ContactCenterMessagingSDK', :podspec => 'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
     ```
 4. Open the terminal and navigate to the root directory of the ContactCenterMessagingApp to install the pods for the Adaptivecards dependency. Execute the following command in the terminal.
