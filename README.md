@@ -862,6 +862,8 @@ Instructions:
 * [Setting up Azure Notification Hub](https://learn.microsoft.com/en-us/azure/notification-hubs/create-notification-hub-portal) 
 * [Configuring Apple Push Notifications](https://learn.microsoft.com/en-us/azure/notification-hubs/configure-apple-push-notification-service)
 
+You can find a code example in [ContactCenterMessagingApp](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/ContactCenterMessagingApp).
+
 You will also need:
 * The **App Id** for the workstream used by your application.
 * The **org_url** for your Contact Center dataverse
