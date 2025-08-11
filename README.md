@@ -925,9 +925,11 @@ Steps to add push notifications:
       completionHandler([]) // No push notitication will get shown as badge or banner or list when app is in foreground
       // completionHandler([.banner,.badge,.list]) // Uncomment this to show Push notitication as badge or banner or list when app is in foreground
    }
+```
 
-5. Handling unsuccessful registration add didFailToRegisterForRemoteNotificationsWithError.
+6. Handling unsuccessful registration add didFailToRegisterForRemoteNotificationsWithError.
 
+```
  // Handle unsuccessful registration for remote notifications
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       print("Failed to register for remote notifications: \\(error.localizedDescription)")
