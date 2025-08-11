@@ -914,6 +914,7 @@ Steps to add push notifications:
    }
 
 5. Handling Push Notifications Payload in foreground add userNotificationCenter willPresent.
+
 // MARK: Handle Push Notification when the app is in the foreground
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
      // Handle the notification presentation here
@@ -922,6 +923,7 @@ Steps to add push notifications:
   }
 
 5. Handling unsuccessful registration add didFailToRegisterForRemoteNotificationsWithError.
+
  // Handle unsuccessful registration for remote notifications
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       print("Failed to register for remote notifications: \\(error.localizedDescription)")
