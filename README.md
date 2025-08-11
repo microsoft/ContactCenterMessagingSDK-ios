@@ -864,6 +864,78 @@ Instructions:
 
 You can find a code example in [ContactCenterMessagingApp](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/ContactCenterMessagingApp).
 
+Steps to add push notifications:
+1. Once you have the Apple push certificate and provisioning, you will be able to set up push notifications in your application.
+2. Configure your app's capabilities in Xcode to enable push notifications.
+3. Registering for Remote Notifications:
+   ```
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Request push notification authorization
+        registerForPushNotifications(application: application)
+        return true
+    }
+
+   private func registerForPushNotifications(application: UIApplication) {
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {
+            (granted, error) in
+            guard granted else { return }
+            DispatchQueue.main.async {
+                application.registerForRemoteNotifications()
+            }
+        }
+    }
+   ```
+   
+5. Handling Push Notifications Payload add didReceiveRemoteNotification & didRegisterForRemoteNotificationsWithDeviceToken.
+```
+   // MARK: Handle Push Notification registration
+   // Handle successful registration for remote notifications
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("Device token:(token) :",token)
+        // Send the device token to your server for push notification handling
+        UserDefaults.standard.set(token, forKey: "APNSToken")
+        UserDefaults.standard.synchronize()
+    }
+
+ // MARK: Handle Push Notification when the app is in the background
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Handle the received remote notification here
+        // Print the notification payload
+        print("Received remote notification: \(userInfo)")
+        // Process the notification content
+       if let aps = userInfo["aps"] as? [String: Any], let alert = aps["alert"] as? String {
+           // Extract information from the notification payload
+           print("Notification message: \(alert)")
+       }
+       // Indicate the result of the background fetch to the system
+       completionHandler(UIBackgroundFetchResult.newData)
+   }
+```
+
+5. Handling Push Notifications Payload in foreground add userNotificationCenter willPresent.
+
+```
+ // MARK: Handle Push Notification when the app is in the foreground
+   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+      // Handle the notification presentation here
+      completionHandler([]) // No push notitication will get shown as badge or banner or list when app is in foreground
+      // completionHandler([.banner,.badge,.list]) // Uncomment this to show Push notitication as badge or banner or list when app is in foreground
+   }
+```
+
+6. Handling unsuccessful registration add didFailToRegisterForRemoteNotificationsWithError.
+
+```
+ // Handle unsuccessful registration for remote notifications
+  func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      print("Failed to register for remote notifications: \\(error.localizedDescription)")
+  }
+```
+
 You will also need:
 * The **App Id** for the workstream used by your application.
 * The **org_url** for your Contact Center dataverse
