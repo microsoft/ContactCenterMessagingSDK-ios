@@ -868,6 +868,7 @@ Steps to add push notifications:
 1. Once you have the Apple push certificate and provisioning, you will be able to set up push notifications in your application.
 2. Configure your app's capabilities in Xcode to enable push notifications.
 3. Registering for Remote Notifications:
+   ```
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Request push notification authorization
         registerForPushNotifications(application: application)
@@ -885,8 +886,10 @@ Steps to add push notifications:
             }
         }
     }
-4. Handling Push Notifications Payload add didReceiveRemoteNotification & didRegisterForRemoteNotificationsWithDeviceToken.
-
+   ```
+   
+5. Handling Push Notifications Payload add didReceiveRemoteNotification & didRegisterForRemoteNotificationsWithDeviceToken.
+```
    // MARK: Handle Push Notification registration
    // Handle successful registration for remote notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -900,7 +903,6 @@ Steps to add push notifications:
 
  // MARK: Handle Push Notification when the app is in the background
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-      
         // Handle the received remote notification here
         // Print the notification payload
         print("Received remote notification: \(userInfo)")
@@ -912,15 +914,17 @@ Steps to add push notifications:
        // Indicate the result of the background fetch to the system
        completionHandler(UIBackgroundFetchResult.newData)
    }
+```
 
 5. Handling Push Notifications Payload in foreground add userNotificationCenter willPresent.
 
-// MARK: Handle Push Notification when the app is in the foreground
-  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-     // Handle the notification presentation here
-     completionHandler([]) // No push notitication will get shown as badge or banner or list when app is in foreground
-     // completionHandler([.banner,.badge,.list]) // Uncomment this to show Push notitication as badge or banner or list when app is in foreground
-  }
+```
+ // MARK: Handle Push Notification when the app is in the foreground
+   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+      // Handle the notification presentation here
+      completionHandler([]) // No push notitication will get shown as badge or banner or list when app is in foreground
+      // completionHandler([.banner,.badge,.list]) // Uncomment this to show Push notitication as badge or banner or list when app is in foreground
+   }
 
 5. Handling unsuccessful registration add didFailToRegisterForRemoteNotificationsWithError.
 
@@ -928,7 +932,8 @@ Steps to add push notifications:
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       print("Failed to register for remote notifications: \\(error.localizedDescription)")
   }
-  
+```
+
 You will also need:
 * The **App Id** for the workstream used by your application.
 * The **org_url** for your Contact Center dataverse
