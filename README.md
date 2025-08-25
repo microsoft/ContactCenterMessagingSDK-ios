@@ -1,17 +1,7 @@
 # Dynamics 365 Contact Center - Messaging SDK - iOS
-
-> ⚠️ The software is available as a Public Preview with release support for select Microsoft
-partners and customers. To receive support for your release, contact CC-Mobile-Preview@microsoft.com 
-with your release date and plans. Customers must have an agreement with the Contact Center team
-to guarantee timely support during the Preview period.
-
-## Sample Application 
-* You can refer to the sample application from here
-[ContactCenterMessagingApp](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/ContactCenterMessagingApp).
-
 ## Table of Contents
-
   * [About](#about)
+  * [Sample Application](#sample-application)
   * [Installation](#installation)
     + [Pre-Requisites](#pre-requisites)
     + [Method One: Manual Integration](#method-one-manual-integration)
@@ -76,6 +66,10 @@ can quickly match their existing program
 If there are any customizations you need that aren't available in our product, please
 don't hesitate to reach out to us at CC-Mobile-Preview@microsoft.com and we'll add them
 to our roadmap.
+
+## Sample Application 
+To get you started quickly, we offer a pre-configured sample application here:
+[ContactCenterMessagingApp](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/ContactCenterMessagingApp).
 
 ## Installation
 ### Pre-Requisites
@@ -942,108 +936,22 @@ You will also need:
 * An authorization **token** for your Contact Center dataverse API
 
 ### Contact Center Configuration
-> ⚠️ Configuration is currently only available through the API. In the near future we will add a configuration
-interface to the Customer Service Admin Center. Your configurations will appear there when it is released
-and it will not require any changes on your part.
+Push notifications are configured through the Customer Service Admin Center, inside the same Live Chat 
+workstream that you are using with your application.
 
-> Configuration settings only need to be set once per workstream to enable both Android and iOS applications.
+1. Select Customer Support -> Workstream
+2. Select the Chat channel workstream that you are using with the SDK
+3. Select "Edit" inside the widget configuration box
+4. Select the Notification tab
+5. Enable the Notification toggle
 
-1. Create a ChannelInstanceSecret entry:
+This enables notifications. To use them, enter these values and save your widget configuration:
 
-```bash
-curl --request POST \
-  --url https://{{org_url}}/api/data/v9.2/msdyn_channelinstancesecrets \
-  --header 'authorization: Bearer {{token}}' \
-  --header 'content-type: application/json' \
-  --data '{
-}'
-```
-
-2. Get ChannelInstance Secret Id (msdyn_channelinstancesecretid):
-
-```bash
-curl --request GET \
-  --url https://{{org_url}}/api/data/v9.2/msdyn_channelinstancesecrets \
-  --header 'authorization: Bearer {{token}}'
-```
-
-3. Update ChannelInstanceSecret entry with the following values:
-
-```bash
-curl --request PATCH \
-  --url 'https://{{org_url}}/api/data/v9.2/msdyn_channelinstancesecrets({{msdyn_channelinstancesecretid}})' \
-  --header 'authorization: Bearer {{token}}' \
-  --header 'content-type: application/json' \
-  --data '{
-  "msdyn_name": "notificationHubConnectionString",
-  "msdyn_secretvalue": "{{azurenotificationhub_connection_string}}"
-}'
-```
-
-4. Create an Azure Notification Hub entry:
-
-```bash
-curl --request POST \
-  --url https://{{org_url}}/api/data/v9.2/msdyn_azurenotificationhubs \
-  --header 'authorization: Bearer {{token}}' \
-  --header 'content-type: application/json' \
-  --data '{
-  
-}'
-```
-
-5. Get Azure Notification Hub Id (msdyn_azurenotificationhubid):
-
-```bash
-curl --request GET \
-  --url https://{{org_url}}/api/data/v9.2/msdyn_azurenotificationhubs \
-  --header 'authorization: Bearer {{token}}'
-```
-
-6. Update Azure Notification Hub entry with the following values:
-
-```bash
-curl --request PATCH \
-  --url 'https://{{org_url}}/api/data/v9.2/msdyn_azurenotificationhubs({{msdyn_azurenotificationhubid}})' \
-  --header 'authorization: Bearer {{token}}' \
-  --header 'content-type: application/json' \
-  --data '{
-  "msdyn_connectionstringid@odata.bind": "msdyn_channelinstancesecrets({{msdyn_channelinstancesecretid}})",
-  "msdyn_defaultnotificationbody": "Default Notification Content",
-  "msdyn_shownotificationtitle": false,
-  "msdyn_notificationtitle": null,
-  "msdyn_showmessagepreview": true,
-  "msdyn_azurenotificationhubname": "{{azurenotificationhub_name}}"
-}'
-```
-> **msdyn_defaultnotificationbody**: String, this is the default message shown in preview<br>
-**msdyn_shownotificationtitle**: Bool, defines whether or not we show a title above the preview message<br>
-**msdyn_notificationtitle**: String, the title shown if notificationtitle is true<br>
-**msdyn_showmessagepreview**: Bool, defines whether the rep's message is shown in the push notification. If
-false, defaultnotificationbody is always used. If true, defaultnotificationbody is only used when the agent
-sends a message without text, such as an attachment.<br>
-**msdyn_azurenotificationhubname**: String, your hub name in Azure Notification Hub.
-
-
-7. Get LiveChatConfig id (msdyn_livechatconfigid) entry linked to the workstream
-
-```bash
-curl --request GET \
-  --url 'https://{{org_url}}/api/data/v9.2/msdyn_livechatconfigs?%24filter=msdyn_widgetappid%2520eq%2520{{widget_app_id}}' \
-  --header 'authorization: Bearer {{token}}'
-```
-
-8. Link the Azure Notification Hub to the LiveChatConfig entry:
-
-```bash
-curl --request PATCH \
-  --url 'https://{{org_url}}/api/data/v9.2/msdyn_livechatconfigs({{msdyn_livechatconfigid}})' \
-  --header 'authorization: Bearer {{token}}' \
-  --header 'content-type: application/json' \
-  --data '{
-  "msdyn_azurenotificationhubid@odata.bind": "msdyn_azurenotificationhubs({{msdyn_azurenotificationhubid}})"
-}'
-```
+* **Azure Notification Hub name**: The hub name (note: not the namespace) for your Azure Notification Hub resouce
+* **Connection string**: Your Azure Notification hub connection string as described [here](https://learn.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-security). This should have Listen, Send, and Manage permissions.
+* **Default notification message**: This is shown in the push notification if previews are off or when the Customer Service Rep sends a message without text (such as an attachment).
+* **Show message preview in notification**: If enabled, will display the Customer Service Representative's message inside the notification. If disabled, will always show the default notification message.
+* **Show notification title**: If enabled, will display a customizeable title for every notification.
 
 ## Contributing
 
