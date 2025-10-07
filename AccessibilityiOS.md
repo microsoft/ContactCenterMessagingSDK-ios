@@ -1,11 +1,9 @@
-# Accessibility iOS iPhone/iPad
+## Accessibility iOS iPhone/iPad Apple Refernce docs
 ## Table of Contents
-* [Voiceover Reference docs](#accessibility-apple-reference-docs)
+* [Voiceover Reference docs](#accessibility-Voiceover-reference-docs)
 * [Keybord Reference docs](#accessibility-keyboard-reference-docs)
 
-## Accessibility Apple Refernce docs
-
-### Accessibility Voiceover Reference docs
+## Accessibility Voiceover Reference docs
 * **Use VoiceOver gestures on iPhone**:
 [VoiceOver gestures](https://support.apple.com/en-in/guide/iphone/iph3e2e2281/26/ios/26)
 
@@ -19,7 +17,7 @@
 * User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to select "Links" and then swipe up/down to move between links. Double-tap will activate the focused link. This is the standard accessibility pattern for multiple links in a text view.
 [Rotor on iPhone](https://support.apple.com/en-in/guide/iphone/iph3e2e3a6d/26/ios/26)
 
-### Accessibility Keyboard Reference docs
+## Accessibility Keyboard Reference docs
 
 [Keyboard handling](https://support.apple.com/en-in/guide/iphone/iph6c494dc6/26/ios/26)
 
