@@ -31,27 +31,25 @@ Action	Shortcut
 | Turn on VoiceOver     | VO + K   |
 | Turn off VoiceOver     | Escape  |
 | Select next/previous item     | VO + Right Arrow / VO + Left Arrow  |
+| Activate selected item |	VO + Spacebar |
+| Touch and hold item |	VO + Shift + M |
+| Read from current position |	VO + A |
+| Read from top |	VO + B |
+| Pause/resume reading |	Control |
+| Copy last spoken text |	VO + Shift + C |
+| Search for text |	VO + F
+| Mute/unmute VoiceOver |	VO + S |
+| Go to Home Screen |	VO + H |
+| Move to Status Bar |	VO + M |
+| Open Notifications |	VO + M, then Option + Up Arrow |
+| Open Control Center |	VO + M, then Option + Down Arrow |
+| Open App Switcher |	VO + H + H |
+| Open Item Chooser |	VO + I |
+| Change label of item |	VO + / |
+| Start/stop/pause action |	VO + Hyphen |
+| Swipe up/down |	VO + Up Arrow / VO + Down Arrow |
+| Turn rotor left/right |	VO + Command + Left/Right Arrow |
+| Adjust rotor setting |	VO + Command + Up/Down Arrow |
+| Turn screen curtain on/off |	VO + Fn + Hyphen (or VO + Globe + Hyphen) |
+| Dismiss popup |	Escape |
 |:-----------|:------------------|
-
-	
-Activate selected item	VO + Spacebar
-Touch and hold item	VO + Shift + M
-Read from current position	VO + A
-Read from top	VO + B
-Pause/resume reading	Control
-Copy last spoken text	VO + Shift + C
-Search for text	VO + F
-Mute/unmute VoiceOver	VO + S
-Go to Home Screen	VO + H
-Move to Status Bar	VO + M
-Open Notifications	VO + M, then Option + Up Arrow
-Open Control Center	VO + M, then Option + Down Arrow
-Open App Switcher	VO + H + H
-Open Item Chooser	VO + I
-Change label of item	VO + /
-Start/stop/pause action	VO + Hyphen
-Swipe up/down	VO + Up Arrow / VO + Down Arrow
-Turn rotor left/right	VO + Command + Left/Right Arrow
-Adjust rotor setting	VO + Command + Up/Down Arrow
-Turn screen curtain on/off	VO + Fn + Hyphen (or VO + Globe + Hyphen)
-Dismiss popup	Escape
