@@ -55,6 +55,7 @@
 
 
 ***Default Full Keyboard Access Shortcuts on iPhone***
+[Full Keyboard Access](https://support.apple.com/en-in/guide/iphone/ipha4375873f/ios)
 
 These shortcuts allow you to navigate and control your iPhone without using the touchscreen:
 **Action	Shortcut**
@@ -69,5 +70,6 @@ These shortcuts allow you to navigate and control your iPhone without using the 
 | Open App Switcher| 	Fn + ↑ (Up Arrow)| 
 | Open Control Center| 	Fn + C| 
 | Open Notification Center| 	Fn + N| 
-You’ll see a blue highlight around the focused item when Full Keyboard Access is active. [support.apple.com]
+
+You’ll see a blue highlight around the focused item when Full Keyboard Access is active.
 
