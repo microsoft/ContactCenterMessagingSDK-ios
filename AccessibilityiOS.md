@@ -29,9 +29,7 @@ Action	Shortcut
 | Action       | Shortcut              | 
 |:-----------|:------------------|
 | Turn on VoiceOver     | VO + K   |
-|:-----------|:------------------|
 | Turn off VoiceOver     | Escape  |
-|:-----------|:------------------|
 | Select next/previous item     | VO + Right Arrow / VO + Left Arrow  |
 |:-----------|:------------------|
 
