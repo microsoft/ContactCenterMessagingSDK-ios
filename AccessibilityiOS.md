@@ -18,6 +18,8 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 
 [Rotor on iPhone](https://support.apple.com/en-in/guide/iphone/iph3e2e3a6d/26/ios/26)
 
+[Voiceover user guide with images](https://a11y-guidelines.orange.com/en/mobile/ios/voiceover/)
+
 ## Accessibility Keyboard Reference docs
 
 [Keyboard handling](https://support.apple.com/en-in/guide/iphone/iph6c494dc6/26/ios/26)
