@@ -24,7 +24,7 @@
 ### Accessibility Keyboard Reference docs
 [Keyboard handling](https://support.apple.com/en-in/guide/iphone/iph6c494dc6/26/ios/26)
 
-Action	Shortcut
+**Action	Shortcut**
 
 | Action       | Shortcut              | 
 |:-----------|:------------------|
@@ -52,4 +52,22 @@ Action	Shortcut
 | Adjust rotor setting |	VO + Command + Up/Down Arrow |
 | Turn screen curtain on/off |	VO + Fn + Hyphen (or VO + Globe + Hyphen) |
 | Dismiss popup |	Escape |
+
+
+***Default Full Keyboard Access Shortcuts on iPhone***
+
+These shortcuts allow you to navigate and control your iPhone without using the touchscreen:
+**Action	Shortcut**
+
+| Action       | Shortcut              | 
 |:-----------|:------------------|
+| View available Full Keyboard Access commands| 	Tab + H| 
+| Move forward (next item)| 	Tab| 
+| Move backward (previous item)| 	Shift + Tab| 
+| Activate selected item| 	Space bar| 
+| Go to Home Screen| 	Fn + H| 
+| Open App Switcher| 	Fn + ↑ (Up Arrow)| 
+| Open Control Center| 	Fn + C| 
+| Open Notification Center| 	Fn + N| 
+You’ll see a blue highlight around the focused item when Full Keyboard Access is active. [support.apple.com]
+
