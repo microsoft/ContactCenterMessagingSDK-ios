@@ -1,9 +1,7 @@
 # Accessibility iOS iPhone/iPad
 ## Table of Contents
-* [Reference docs](#accessibility-apple-reference-docs)
-* [Reference docs](#accessibility-apple-reference-docs)
-
-## Accessibility Apple Refernce docs
+* [Voiceover Reference docs](#accessibility-apple-reference-docs)
+* [Keybord Reference docs](#accessibility-keyboard-reference-docs)
 
 ## Accessibility Apple Refernce docs
 
@@ -22,6 +20,7 @@
 [Rotor on iPhone](https://support.apple.com/en-in/guide/iphone/iph3e2e3a6d/26/ios/26)
 
 ### Accessibility Keyboard Reference docs
+
 [Keyboard handling](https://support.apple.com/en-in/guide/iphone/iph6c494dc6/26/ios/26)
 
 **Action	Shortcut**
