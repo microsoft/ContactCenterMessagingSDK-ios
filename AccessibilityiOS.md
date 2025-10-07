@@ -70,6 +70,7 @@ These shortcuts allow you to navigate and control your iPhone without using the 
 | Open App Switcher| 	Fn + ↑ (Up Arrow)| 
 | Open Control Center| 	Fn + C| 
 | Open Notification Center| 	Fn + N| 
+| Open options for links | 	Tab + Z| 
 
 You’ll see a blue highlight around the focused item when Full Keyboard Access is active.
 
