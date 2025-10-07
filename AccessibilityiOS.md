@@ -14,7 +14,8 @@
 [Operate iPhone](https://support.apple.com/en-in/guide/iphone/iph3e2e2329/26/ios/26)
 
 * **Control VoiceOver using the rotor on iPhone**
-* User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to select "Links" and then swipe up/down to move between links. Double-tap will activate the focused link. This is the standard accessibility pattern for multiple links in a text view.
+User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to select "Links" and then swipe up/down to move between links. Double-tap will activate the focused link. This is the standard accessibility pattern for multiple links in a text view.
+
 [Rotor on iPhone](https://support.apple.com/en-in/guide/iphone/iph3e2e3a6d/26/ios/26)
 
 ## Accessibility Keyboard Reference docs
