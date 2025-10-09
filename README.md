@@ -953,6 +953,9 @@ This enables notifications. To use them, enter these values and save your widget
 * **Show message preview in notification**: If enabled, will display the Customer Service Representative's message inside the notification. If disabled, will always show the default notification message.
 * **Show notification title**: If enabled, will display a customizeable title for every notification.
 
+## Accessibility
+Frequently asked questions about accessibility are configured under the page AccessibilityiOS.md [AccessibilityiOS.md]
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
