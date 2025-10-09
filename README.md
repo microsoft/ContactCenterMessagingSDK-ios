@@ -34,6 +34,7 @@
   * [Push Notifications](#push-notifications)
     + [Requirements](#requirements)
     + [Contact Center Configuration](#contact-center-configuration)
+  * [Accessibility] (##accessibility)
   * [Contributing](#contributing)
   * [Trademarks](#trademarks)
 
@@ -954,7 +955,7 @@ This enables notifications. To use them, enter these values and save your widget
 * **Show notification title**: If enabled, will display a customizeable title for every notification.
 
 ## Accessibility
-Frequently asked questions about accessibility are configured under the page AccessibilityiOS.md [AccessibilityiOS.md]
+Frequently asked questions about accessibility are configured under the page [AccessibilityiOS.md](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/AccessibilityiOS.md)
 
 ## Contributing
 
