@@ -5,9 +5,9 @@
 * [Keybord Reference docs](#accessibility-keyboard-reference-docs)
 
 ## Accessibility for links using custom actions
-1. Select the cell which having link.
-2. swipe up for select link, if two or more links swipe up and it will announce selected link (it will not focus). It call e.g. Microsoft is the link then it will announce "Microsoft is the selected link, double tap to activate"
-3. Double tap to open selected link.
+1. Select the cell which having links.
+2. Swipe-Up to select link, if two or more links swipe up and it will announce selected link (note - it will not focus). It will call out link with actions e.g. Microsoft is the link then it will announce "Microsoft is the selected link, double tap to activate"
+3. Double tap to open/activate selected link.
 
 ## Accessibility Voiceover Reference docs
 * **Use VoiceOver gestures on iPhone**:
