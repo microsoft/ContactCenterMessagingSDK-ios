@@ -34,7 +34,7 @@
   * [Push Notifications](#push-notifications)
     + [Requirements](#requirements)
     + [Contact Center Configuration](#contact-center-configuration)
-  * [Accessibility] (##accessibility)
+  * [Accessibility](#accessibility)
   * [Contributing](#contributing)
   * [Trademarks](#trademarks)
 
