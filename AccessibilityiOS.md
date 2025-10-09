@@ -1,7 +1,13 @@
 ## Accessibility iOS iPhone/iPad Apple Refernce docs
 ## Table of Contents
+* [Activate Links](#accessibility-for-links-using-custom-actions)
 * [Voiceover Reference docs](#accessibility-Voiceover-reference-docs)
 * [Keybord Reference docs](#accessibility-keyboard-reference-docs)
+
+## Accessibility for links using custom actions
+1. Select the cell which having link.
+2. swipe up for select link, if two or more links swipe up and it will announce selected link (it will not focus). It call e.g. Microsoft is the link then it will announce "Microsoft is the selected link, double tap to activate"
+3. Double tap to open selected link.
 
 ## Accessibility Voiceover Reference docs
 * **Use VoiceOver gestures on iPhone**:
