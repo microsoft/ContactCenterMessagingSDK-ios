@@ -955,7 +955,7 @@ This enables notifications. To use them, enter these values and save your widget
 * **Show notification title**: If enabled, will display a customizeable title for every notification.
 
 ## Accessibility
-Frequently asked questions about accessibility are configured under the page [AccessibilityiOS.md](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/AccessibilityiOS.md)
+Frequently asked questions regarding accessibility have been set up on the designated page. [AccessibilityiOS.md](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/AccessibilityiOS.md)
 
 ## Contributing
 
