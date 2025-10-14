@@ -79,6 +79,7 @@ You’ll see a blue highlight around the focused item when Full Keyboard Access 
 Turn on Quick Nav to control VoiceOver using the arrow keys.
 
 | Action       | Shortcut              | 
+|:-----------|:------------------|
 | Turn Quick Nav on or off | Left Arrow-Right Arrow |
 | Select the next or previous item | Right Arrow or Left Arrow |
 | Select the next or previous item specified by the rotor | Up Arrow or Down Arrow |
