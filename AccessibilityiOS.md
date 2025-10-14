@@ -29,21 +29,22 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 3. Double tap to open/activate selected link.
 
 # Voiceover + keyboard
-1. Select item/cell -> bacward forward arrow
-2. Swipe up/down -> 	Option/alt + Up Arrow/ Option/alt + Down Arrow
-3. Activate selected item -> 	Space bar/ Option/alt + Command + spacebar
+1. Select item/cell -> Tab / Right Arrow or Left Arrow
+2. Swipe up/down -> Option/alt + Up Arrow/ Option/alt + Down Arrow
+3. Activate selected item -> 	Space bar/ Option/alt + Command + Space bar
 
    or
    
-1. Select item/cell -> bacward forward arrow
-2. Open options for actions -> 	Tab + Z
-3. Select action
-4. Double click on spacebar to activate action
+1. Select item/cell -> Tab / Right Arrow or Left Arrow
+2. Open options for actions -> Tab + Z
+3. Select action -> Up Arrow / Down Arrow
+4. Activate selected item ->  Space bar/ Option/alt + Command + Space bar
+
 
 # Voiceover + arrow keys
 1. Select item/cell -> Right Arrow or Left Arrow
-2. Swipe up/down -> 	Up Arrow or Down Arrow
-3. Activate selected item -> 	Up Arrow-Down Arrow
+2. Swipe up/down -> Up Arrow or Down Arrow
+3. Activate selected item -> Up Arrow-Down Arrow
 
 ## Accessibility Keyboard Reference docs
 
