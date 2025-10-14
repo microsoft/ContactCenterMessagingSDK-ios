@@ -26,7 +26,7 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 1. Select the item/cell.
 2. Swipe-Up to select link.
    if two or more links swipe up and it will announce selected link (note - it will not focus). It will call out link       with actions e.g. Microsoft is the link then it will announce "Microsoft is the selected link, double tap to activate"
-4. Double tap to open/activate selected link.
+3. Double tap to open/activate selected link.
 
 # Voiceover + keyboard
 1. Select item/cell -> bacward forward arrow
