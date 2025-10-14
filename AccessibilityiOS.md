@@ -1,13 +1,24 @@
 ## Accessibility iOS iPhone/iPad Apple Refernce docs
 ## Table of Contents
-* [Activate Links](#accessibility-for-links-using-custom-actions)
 * [Voiceover Reference docs](#accessibility-Voiceover-reference-docs)
 * [Keybord Reference docs](#accessibility-keyboard-reference-docs)
+* [Activate Links](#accessibility-for-links-using-custom-actions)
 
 ## Accessibility for links using custom actions
+
+# Voiceover
 1. Select the cell which having links.
 2. Swipe-Up to select link, if two or more links swipe up and it will announce selected link (note - it will not focus). It will call out link with actions e.g. Microsoft is the link then it will announce "Microsoft is the selected link, double tap to activate"
 3. Double tap to open/activate selected link.
+
+# Voiceover + keyboard
+1. Select item/cell -> bacward forward arrow
+2. Swipe up/down -> 	Option/alt + Up Arrow/ Option/alt + Down Arrow
+3. Activate selected item -> 	Space bar/ Option/alt + Command + spacebar
+   or
+2. Open options for actions -> 	Tab + Z
+3. Select action
+4. Double click on spacebar to activate action
 
 ## Accessibility Voiceover Reference docs
 * **Use VoiceOver gestures on iPhone**:
@@ -30,53 +41,29 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 
 [Keyboard handling](https://support.apple.com/en-in/guide/iphone/iph6c494dc6/26/ios/26)
 
-**Action	Shortcut**
-
-| Action       | Shortcut              | 
-|:-----------|:------------------|
-| Turn on VoiceOver     | VO + K   |
-| Turn off VoiceOver     | Escape  |
-| Select next/previous item     | VO + Right Arrow / VO + Left Arrow  |
-| Activate selected item |	VO + Spacebar |
-| Touch and hold item |	VO + Shift + M |
-| Read from current position |	VO + A |
-| Read from top |	VO + B |
-| Pause/resume reading |	Control |
-| Copy last spoken text |	VO + Shift + C |
-| Search for text |	VO + F
-| Mute/unmute VoiceOver |	VO + S |
-| Go to Home Screen |	VO + H |
-| Move to Status Bar |	VO + M |
-| Open Notifications |	VO + M, then Option + Up Arrow |
-| Open Control Center |	VO + M, then Option + Down Arrow |
-| Open App Switcher |	VO + H + H |
-| Open Item Chooser |	VO + I |
-| Change label of item |	VO + / |
-| Start/stop/pause action |	VO + Hyphen |
-| Swipe up/down |	VO + Up Arrow / VO + Down Arrow |
-| Turn rotor left/right |	VO + Command + Left/Right Arrow |
-| Adjust rotor setting |	VO + Command + Up/Down Arrow |
-| Turn screen curtain on/off |	VO + Fn + Hyphen (or VO + Globe + Hyphen) |
-| Dismiss popup |	Escape |
-
-
 ***Default Full Keyboard Access Shortcuts on iPhone***
 [Full Keyboard Access](https://support.apple.com/en-in/guide/iphone/ipha4375873f/ios)
 
 These shortcuts allow you to navigate and control your iPhone without using the touchscreen:
-**Action	Shortcut**
+
+**Few Action	Shortcut**
 
 | Action       | Shortcut              | 
 |:-----------|:------------------|
-| View available Full Keyboard Access commands| 	Tab + H| 
-| Move forward (next item)| 	Tab| 
-| Move backward (previous item)| 	Shift + Tab| 
-| Activate selected item| 	Space bar| 
-| Go to Home Screen| 	Fn + H| 
-| Open App Switcher| 	Fn + ↑ (Up Arrow)| 
-| Open Control Center| 	Fn + C| 
-| Open Notification Center| 	Fn + N| 
-| Open options for links | 	Tab + Z| 
+| View available Full Keyboard Access commands | 	Tab + H | 
+| Remove view available for Full Keyboard Access commands | 	Tab + H | 
+| Move forward (next item) | 	Tab | 
+| Move backward (previous item) | 	Shift + Tab | 
+| Swipe up/down |	Option/alt + ↑ (Up Arrow) / Option/alt + Down Arrow |
+| Activate selected item | 	Space bar/ Option/alt + Command + spacebar | 
+| Open options for actions | 	Tab + Z | 
+| Go to Home Screen | 	Fn + H / Control + Option/alt + H | 
+| Open App Switcher | 	Fn + ↑ (Up Arrow) / Option/alt + H + H | 
+| Dismiss popup |	Escape |
+| Read from current position |	Control + Option/alt + A |
+| Read from top |	Control + Option/alt + B |
+| Pause/resume reading |	Control |
+| Move to Status Bar |	Control + Option/alt + M |
 
 You’ll see a blue highlight around the focused item when Full Keyboard Access is active.
 
