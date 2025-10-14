@@ -35,6 +35,7 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 
    or
    
+1. Select item/cell -> bacward forward arrow
 2. Open options for actions -> 	Tab + Z
 3. Select action
 4. Double click on spacebar to activate action
