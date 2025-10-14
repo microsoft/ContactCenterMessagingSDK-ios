@@ -32,7 +32,9 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 1. Select item/cell -> bacward forward arrow
 2. Swipe up/down -> 	Option/alt + Up Arrow/ Option/alt + Down Arrow
 3. Activate selected item -> 	Space bar/ Option/alt + Command + spacebar
+
    or
+   
 2. Open options for actions -> 	Tab + Z
 3. Select action
 4. Double click on spacebar to activate action
