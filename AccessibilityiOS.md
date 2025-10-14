@@ -4,7 +4,7 @@
 * [Activate Links](#accessibility-open-links-for-custom-actions)
 * [Keybord Reference docs](#accessibility-keyboard-reference-docs)
 
-## Accessibility Voiceover Reference docs
+# Accessibility Voiceover Reference docs
 * **Use VoiceOver gestures on iPhone**:
 [VoiceOver gestures](https://support.apple.com/en-in/guide/iphone/iph3e2e2281/26/ios/26)
 
@@ -19,15 +19,15 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
      * [Rotor on iPhone](https://support.apple.com/en-in/guide/iphone/iph3e2e3a6d/26/ios/26)
      * [Voiceover user guide with images](https://a11y-guidelines.orange.com/en/mobile/ios/voiceover/)
 
-## Accessibility open links for custom actions
+# Accessibility open links for custom actions
 
-# Voiceover
+## Voiceover
 1. Select the item/cell.
 2. Swipe-Up to select link.
    if two or more links swipe up and it will announce selected link (note - it will not focus). It will call out link       with actions e.g. Microsoft is the link then it will announce "Microsoft is the selected link, double tap to activate"
 3. Double tap to open/activate selected link.
 
-# Voiceover + keyboard
+## Voiceover + keyboard
 1. Select item/cell -> Tab / Right Arrow or Left Arrow
 2. Swipe up/down -> Option/alt + Up Arrow/ Option/alt + Down Arrow
 3. Activate selected item -> 	Space bar/ Option/alt + Command + Space bar
@@ -40,12 +40,12 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 4. Activate selected item ->  Space bar/ Option/alt + Command + Space bar
 
 
-# Voiceover + arrow keys
+## Voiceover + arrow keys
 1. Select item/cell -> Right Arrow or Left Arrow
 2. Swipe up/down -> Up Arrow or Down Arrow
 3. Activate selected item -> Up Arrow-Down Arrow
 
-## Accessibility Keyboard Reference docs
+# Accessibility Keyboard Reference docs
 
 [Keyboard handling](https://support.apple.com/en-in/guide/iphone/iph6c494dc6/26/ios/26)
 
@@ -54,7 +54,7 @@ User Guidance: Instruct users to use the rotor (two-finger rotate gesture) to 
 
 These shortcuts allow you to navigate and control your iPhone without using the touchscreen:
 
-**Few Action	Shortcut**
+**Few Action Shortcut**
 
 | Action       | Shortcut              | 
 |:-----------|:------------------|
@@ -75,7 +75,7 @@ These shortcuts allow you to navigate and control your iPhone without using the 
 
 You’ll see a blue highlight around the focused item when Full Keyboard Access is active.
 
-# Quick Nav using the arrow keys
+## Quick Nav using the arrow keys
 Turn on Quick Nav to control VoiceOver using the arrow keys.
 
 | Action       | Shortcut              | 
