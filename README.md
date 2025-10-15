@@ -34,6 +34,7 @@
   * [Push Notifications](#push-notifications)
     + [Requirements](#requirements)
     + [Contact Center Configuration](#contact-center-configuration)
+  * [Accessibility](#accessibility)
   * [Contributing](#contributing)
   * [Trademarks](#trademarks)
 
@@ -952,6 +953,9 @@ This enables notifications. To use them, enter these values and save your widget
 * **Default notification message**: This is shown in the push notification if previews are off or when the Customer Service Rep sends a message without text (such as an attachment).
 * **Show message preview in notification**: If enabled, will display the Customer Service Representative's message inside the notification. If disabled, will always show the default notification message.
 * **Show notification title**: If enabled, will display a customizeable title for every notification.
+
+## Accessibility
+Frequently asked questions regarding accessibility have been set up on the designated page. [AccessibilityiOS.md](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/AccessibilityiOS.md)
 
 ## Contributing
 
