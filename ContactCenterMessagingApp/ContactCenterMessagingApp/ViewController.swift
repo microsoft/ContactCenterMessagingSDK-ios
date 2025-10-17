@@ -138,7 +138,7 @@ class ViewController: UIViewController {
     
     func setProdAPI() {
         let engage = LCWOmniChannelConfigRequest(orgId: orgIdDataFinal, orgUrl: orgUrlDataFinal, widgetId: widgetIdDataFinal)
-        **// Nate: Update LCWChatSDKConfigRequest as per your requirement**
+        // ** Nate: Update LCWChatSDKConfigRequest as per your requirement **
         LiveChatMessaging.shared.initialize(omniChannelConfig: engage, chatSDKconfig: LCWChatSDKConfigRequest(), initializeChatConfig: nil, authToken:authToken, environment: "test")
     }
     
