@@ -132,7 +132,7 @@ public func initialize(omniChannelConfig:LCWOmniChannelConfigRequest,
                        chatSDKconfig: LCWChatSDKConfigRequest?,
                        initializeChatConfig:LCWInitializeParamsRequest?,
                        authToken: String?, /// For customer authentication -- see "Authentication"
-                       environment: String /// Configure the current environment setting, such as test, production, etc.
+                       environment: String /// Configure the current environment setting, such as 'test' for developement and 'prod' for production, etc.
                       )
 ```
 
