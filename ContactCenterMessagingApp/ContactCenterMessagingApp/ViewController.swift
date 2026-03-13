@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     private var widgetIdDataFinal = ""
     private var authTokenFinal = ""
     
-    private var liveChatMessagingVC: LiveChatMessagingViewController!
+    weak var liveChatMessagingVC: LiveChatMessagingViewController? // Keeping optional so automatically invalidate instance so next launch creates fresh one
     
     private let blueOCStandardColor = UIColor(red: 47/255.0, green: 90/255.0, blue: 146/255.0, alpha: 1.0)
 
@@ -128,12 +128,25 @@ class ViewController: UIViewController {
         if liveChatMessagingVC == nil {
             liveChatMessagingVC = launchMessagingViewController(delegate: self)
         }
-        liveChatMessagingVC.modalPresentationStyle = .fullScreen
+        
+        let prop = LCWTitleBarProperties()
+        prop.showOption1ButtonText = true
+        prop.option1TextName = "Chat"
+        prop.option1ButtonWidth = 50
+        prop.rightHeaderIcons = [TitleBarElement.option1.rawValue,TitleBarElement.minimize.rawValue ,TitleBarElement.close.rawValue]
+        liveChatMessagingVC!.setTitleBarProperties(properties:prop)
+        
+        let prop1 = LCWMessagingViewProperties()
+        prop1.isChatFromBottom = true
+        liveChatMessagingVC!.setTranscriptViewPropeties(properties: prop1)
+        
         if let apnsToken = UserDefaults.standard.value(forKey: "APNSToken") as? String {
             LiveChatMessaging.shared.setAPNSToken(tokenData: apnsToken)
             print("APNS Token passed : ",LiveChatMessaging.shared.getAPNSToken() as Any)
         }
-        self.present(liveChatMessagingVC, animated: true, completion: nil)
+        
+        liveChatMessagingVC!.modalPresentationStyle = .fullScreen
+        self.present(liveChatMessagingVC!, animated: true, completion: nil)
     }
     
     func setProdAPI() {

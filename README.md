@@ -72,6 +72,20 @@ to our roadmap.
 To get you started quickly, we offer a pre-configured sample application here:
 [ContactCenterMessagingApp](https://github.com/microsoft/ContactCenterMessagingSDK-ios/tree/main/ContactCenterMessagingApp).
 
+## **Important** steps to follow while adding SDKs
+1. Always create weak object of LiveChatMessagingViewController. Example
+   *weak* var liveChatMessagingVC: LiveChatMessagingViewController? // Keeping optional so automatically invalidate instance so next launch creates fresh one
+2. Always call LiveChatMessaging.shared.initialize call before presentation of liveChatMessagingVC. In sample application, 
+3. Always do null check on liveChatMessagingVC. Example
+   if liveChatMessagingVC == nil {
+        liveChatMessagingVC = launchMessagingViewController(delegate: self)
+    }
+    if let liveChatMessagingVC = liveChatMessagingVC {
+        liveChatMessagingVC.modalPresentationStyle = .fullScreen
+        ... 
+        self.present(liveChatMessagingVC, animated: true, completion: nil)
+    }
+    
 ## Installation
 ### Pre-Requisites
 
@@ -303,8 +317,6 @@ LiveChatMessaging.shared.onNewMessage(messageRequest) { (success, error) in
     }
 }
 ```
-
-
 
 ### startChat
 This API is used to start a chat session. It takes optional parameters for the request and provides a completion handler to handle the response.
