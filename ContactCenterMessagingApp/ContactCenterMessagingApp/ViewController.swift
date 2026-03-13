@@ -130,21 +130,21 @@ class ViewController: UIViewController {
         }
         
         let prop = LCWTitleBarProperties()
+        prop.showOption1ButtonText = true
         prop.option1TextName = "Chat"
-        prop.showOption2ButtonText = true
-        prop.rightHeaderIcons = [TitleBarElement.minimize.rawValue ,TitleBarElement.close.rawValue]
-        prop.leftHeaderIcons = [TitleBarElement.option2.rawValue]
+        prop.option1ButtonWidth = 50
+        prop.rightHeaderIcons = [TitleBarElement.option1.rawValue,TitleBarElement.minimize.rawValue ,TitleBarElement.close.rawValue]
         liveChatMessagingVC!.setTitleBarProperties(properties:prop)
         
         let prop1 = LCWMessagingViewProperties()
         prop1.isChatFromBottom = true
         liveChatMessagingVC!.setTranscriptViewPropeties(properties: prop1)
         
-        liveChatMessagingVC!.modalPresentationStyle = .fullScreen
         if let apnsToken = UserDefaults.standard.value(forKey: "APNSToken") as? String {
             LiveChatMessaging.shared.setAPNSToken(tokenData: apnsToken)
             print("APNS Token passed : ",LiveChatMessaging.shared.getAPNSToken() as Any)
         }
+        
         liveChatMessagingVC!.modalPresentationStyle = .fullScreen
         self.present(liveChatMessagingVC!, animated: true, completion: nil)
     }
