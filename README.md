@@ -201,8 +201,16 @@ Customizations available in the out of the box messaging widget are documented h
 
 [iOS Widget Customizations](iOS_Widget_Customizations.pdf)
 
-**Adaptivecard limitations for iOS**
-Adaptive cards do not support to bullet points & blockquote.
+## Adaptive card limitations for iOS
+1. Blockquotes are unsupported by the AdaptiveCards.
+2. Bullet point support in Adaptive Cards is limited.
+* You can display bullet points using "- <your text>", but for longer text (two or more lines), the text does not align properly with the bullet point.
+  {
+     "isSubtle": true,
+     **"text": "- Item 2",**
+     "wrap": true,
+     "type": "TextBlock"
+  },
 
 ## Core Messaging Framework 
 This section describes the messaging lifecycle functions in the SDK.
