@@ -208,7 +208,7 @@ Customizations available in the out of the box messaging widget are documented h
 ```objc
   ...,{
      "isSubtle": true,
-     **"text": "- Item 2",**
+     "text": "- Item 2",
      "wrap": true,
      "type": "TextBlock"
   },...
