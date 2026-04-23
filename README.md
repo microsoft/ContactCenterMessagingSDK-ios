@@ -123,11 +123,11 @@ Click on your project -> Select 'Targets' -> Select 'General' -> Open 'Framework
 ### Method Two: Cocoapods
 1. Go to the root folder of your app.
 2. Create podfile using command: pod install
-3. Open the Podfile. Add 'ContactCenterMessagingSDK' & 'AdaptiveCards' dependency. You can refer [podfile](https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/ContactCenterMessagingApp/Podfile) from sample app.
+3. Open the Podfile. Add 'ContactCenterMessagingSDK' & 'Cards' dependency. You can refer [podfile](https://github.com/microsoft/ContactCenterMessagingSDK-ios/blob/main/ContactCenterMessagingApp/Podfile) from sample app.
    
  ```$sdkVersion = '<ContactCenterMessagingSDK_Version>'
     pod 'ContactCenterMessagingSDK', :podspec =>  'https://github.com/microsoft/ContactCenterMessagingSDK-ios/releases/download/' + $sdkVersion + '/ContactCenterMessagingSDK-ios.podspec'
-    pod 'AdaptiveCards'
+    pod 'Cards'
  ```
 4. Open the terminal and navigate to the root directory of your app to install the pods. Execute the following command in the terminal.
 command : pod install
@@ -201,7 +201,7 @@ Customizations available in the out of the box messaging widget are documented h
 
 [iOS Widget Customizations](iOS_Widget_Customizations.pdf)
 
-## Adaptive card limitations for iOS
+##  card limitations for iOS
 1. Blockquotes are unsupported by the AdaptiveCards.
 2. Bullet point support in Adaptive Cards is limited.
 * You can display bullet points using "- <your text>", but for longer text (two or more lines), the text does not align properly with the bullet point.
@@ -213,6 +213,14 @@ Customizations available in the out of the box messaging widget are documented h
      "type": "TextBlock"
   },...
 ```
+## Adaptive Cards 
+Adaptive Cards are platform‑agnostic UI components defined in JSON that allow developers to present rich, interactive content—such as text, images, buttons, and input fields—inside applications like Microsoft Teams, Outlook, and chat experiences. They provide a consistent way to display dynamic information and collect user actions across different hosts while automatically adapting to each app’s native look and feel.
+
+[Adaptivecards Cards] https://adaptivecards.io/
+
+You can check different element types of Adaptivecards here 
+[Adaptivecards Designer](https://adaptivecards.microsoft.com/designer)
+
 ## Core Messaging Framework 
 This section describes the messaging lifecycle functions in the SDK.
 
