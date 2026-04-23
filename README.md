@@ -214,8 +214,7 @@ Customizations available in the out of the box messaging widget are documented h
   },...
 ```
 ## Adaptive Cards 
-Adaptive Cards are platform‑agnostic UI components defined in JSON that allow developers to present rich, interactive content—such as text, images, buttons, and input fields—inside applications like Microsoft Teams, Outlook, and chat experiences. They provide a consistent way to display dynamic information and collect user actions across different hosts while automatically adapting to each app’s native look and feel.
-
+We utilize Adaptivecards to present bot responses. If you would like to review the various Adaptivecards element types or learn how to create JSON for Adaptivecards, please refer to the link below.
 [Adaptivecards Cards] https://adaptivecards.io/
 
 You can check different element types of Adaptivecards here 
