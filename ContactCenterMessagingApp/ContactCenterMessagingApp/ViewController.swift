@@ -22,17 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var authTokenTextField: UITextField!
     @IBOutlet weak var btnClearChat: UIButton!
     private var workItem : DispatchWorkItem? = nil
-    
-    private var orgIdData = "<Add org Id>"
-    private var orgUrlData = "<Add org url>"
-    private var widgetIdData = "<Add widget url>"
-    private var authToken = ""
-   
-    private var orgIdDataFinal = ""
-    private var orgUrlDataFinal = ""
-    private var widgetIdDataFinal = ""
-    private var authTokenFinal = ""
-    
+
+    private var credentials = OrgCredentials.placeholder
+
     weak var liveChatMessagingVC: LiveChatMessagingViewController? // Keeping optional so automatically invalidate instance so next launch creates fresh one
     
     private let blueOCStandardColor = UIColor(red: 47/255.0, green: 90/255.0, blue: 146/255.0, alpha: 1.0)
@@ -42,42 +34,12 @@ class ViewController: UIViewController {
         orgIdTextField.delegate = self
         orgUrlTextField.delegate = self
         widgetIdTextField.delegate = self
-        viewAddDetails.layer.borderColor = blueOCStandardColor.cgColor
-        viewAddDetails.layer.borderWidth = 0.5
-        viewAddDetails.layer.cornerRadius = 5
-        
-        btnStartChat.layer.cornerRadius = 5
-        btnStartChat.setTitle("Start Chat", for: .normal)
-        
-        if let orgID = UserDefaults.standard.value(forKey: "orgIdData") as? String {
-            orgIdTextField.text = orgID
-        } else {
-            orgIdTextField.text = orgIdData
-        }
-        orgIdDataFinal = orgIdTextField.text ?? ""
-        
-        if let orgUrl = UserDefaults.standard.value(forKey: "orgUrlData") as? String {
-            orgUrlTextField.text = orgUrl
-        } else {
-            orgUrlTextField.text = orgUrlData
-        }
-        orgUrlDataFinal = orgUrlTextField.text ?? ""
-        
-        if let widgetId = UserDefaults.standard.value(forKey: "widgetIdData") as? String {
-            widgetIdTextField.text = widgetId
-        } else {
-            widgetIdTextField.text = widgetIdData
-        }
-        widgetIdDataFinal = widgetIdTextField.text ?? ""
+        styleAddDetailsView()
 
-        if let savedToken = try? KeychainService.loadToken(for: "tokenAuth"), !savedToken.isEmpty {
-            authTokenTextField.text = savedToken
-        } else {
-            authTokenTextField.text = authToken
-        }
-        authTokenFinal = authTokenTextField.text ?? ""
-        
-        setProdAPI();
+        credentials = OrgCredentialsStore.load()
+        applyCredentialsToUI()
+
+        setProdAPI()
         btnStartChat.backgroundColor = .lightGray
         btnStartChat.isEnabled = false
         
@@ -85,119 +47,106 @@ class ViewController: UIViewController {
             if success != nil {
                 checkChatGoingOn { isChatGoingOn in
                     DispatchQueue.main.async { [self] in
-                        isChatGoingOn ? btnStartChat.setTitle("Restart Chat", for: .normal) : btnStartChat.setTitle("Start Chat", for: .normal)
-                        btnStartChat.isEnabled = true
-                        btnStartChat.backgroundColor = UIColor(red: 47/255.0, green: 90/255.0, blue: 146/255.0, alpha: 1.0)
+                        btnStartChat.setTitle(isChatGoingOn ? "Restart Chat" : "Start Chat", for: .normal)
+                        enableStartChatButton()
                     }
                 }
             } else {
-                btnStartChat.isEnabled = true
-                btnStartChat.backgroundColor = UIColor(red: 47/255.0, green: 90/255.0, blue: 146/255.0, alpha: 1.0)
+                enableStartChatButton()
             }
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+
     @IBAction func actionBtnStartChat(_ sender: Any) {
-        
-        if (orgIdTextField.text ?? "").isEmpty || (orgUrlTextField.text ?? "").isEmpty || (widgetIdTextField.text ?? "").isEmpty {
+        let entered = readCredentialsFromUI()
+        guard entered.isComplete else {
             showError()
             return
         }
-        
-        authTokenFinal = authTokenTextField.text ?? ""
-        widgetIdDataFinal = widgetIdTextField.text ?? ""
-        orgUrlDataFinal = orgUrlTextField.text ?? ""
-        orgIdDataFinal = orgIdTextField.text ?? ""
-        
-        UserDefaults.standard.set(orgIdTextField.text ?? "", forKey: "orgIdData")
-        UserDefaults.standard.set(orgUrlTextField.text ?? "", forKey: "orgUrlData")
-        UserDefaults.standard.set(widgetIdTextField.text ?? "", forKey: "widgetIdData")
-        try? KeychainService.saveToken((authTokenTextField.text ?? ""), for: "tokenAuth")
-        UserDefaults.standard.set(try? KeychainService.loadToken(for: "tokenAuth"), forKey: "authToken")
 
+        credentials = entered
+        OrgCredentialsStore.save(entered)
         setProdAPI()
-        
+
         if liveChatMessagingVC == nil {
             liveChatMessagingVC = launchMessagingViewController(delegate: self)
         }
         
-        let prop = LCWTitleBarProperties()
-        prop.showOption1ButtonText = true
-        prop.option1TextName = "Chat"
-        prop.option1ButtonWidth = 50
-        prop.rightHeaderIcons = [TitleBarElement.option1.rawValue,TitleBarElement.minimize.rawValue ,TitleBarElement.close.rawValue]
-        liveChatMessagingVC!.setTitleBarProperties(properties:prop)
-        
-        let prop1 = LCWMessagingViewProperties()
-        prop1.isChatFromBottom = true
-        liveChatMessagingVC!.setTranscriptViewPropeties(properties: prop1)
-        
+        setMessagingViewProperties(vc: liveChatMessagingVC!)
+
         if let apnsToken = UserDefaults.standard.value(forKey: "APNSToken") as? String {
             LiveChatMessaging.shared.setAPNSToken(tokenData: apnsToken)
             print("APNS Token passed : ",LiveChatMessaging.shared.getAPNSToken() as Any)
         }
-        
+
         liveChatMessagingVC!.modalPresentationStyle = .fullScreen
         self.present(liveChatMessagingVC!, animated: true, completion: nil)
     }
-    
-    func setProdAPI() {
-        let engage = LCWOmniChannelConfigRequest(orgId: orgIdDataFinal, orgUrl: orgUrlDataFinal, widgetId: widgetIdDataFinal)
-        // ** Nate: Update LCWChatSDKConfigRequest as per your requirement **
-        LiveChatMessaging.shared.initialize(omniChannelConfig: engage, chatSDKconfig: LCWChatSDKConfigRequest(), initializeChatConfig: nil, authToken:authToken, environment: "test")
+
+    @IBAction func actionClearChat(_ sender: Any) {
+        LiveChatMessaging.shared.resetAllData()
+        credentials = .empty
+        applyCredentialsToUI()
+        OrgCredentialsStore.clear()
+        btnStartChat.setTitle("Start Chat", for: .normal)
     }
-    
+
+    @IBAction func actionAddDefaultCred(_ sender: Any) {
+        LiveChatMessaging.shared.resetAllData()
+        credentials = .placeholder
+        applyCredentialsToUI()
+    }
+
+    func setProdAPI() {
+        let engage = LCWOmniChannelConfigRequest(orgId: credentials.orgId, orgUrl: credentials.orgUrl, widgetId: credentials.widgetId)
+        // ** Nate: Update LCWChatSDKConfigRequest as per your requirement **
+        LiveChatMessaging.shared.initialize(omniChannelConfig: engage, chatSDKconfig: LCWChatSDKConfigRequest(), initializeChatConfig: nil, authToken: credentials.authToken, environment: "test")
+    }
+
     func showError() {
         let ac = UIAlertController(title: "Alert!", message: "Please add all details.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { _ in}
         ac.addAction(cancelAction)
         present(ac, animated: true)
     }
-    
-    @IBAction func actionClearChat(_ sender: Any) {
-        LiveChatMessaging.shared.resetAllData()
-        widgetIdTextField.text = ""
-        orgUrlTextField.text = ""
-        orgIdTextField.text = ""
-        authTokenTextField.text = ""
-        
-        authTokenFinal = ""
-        orgIdDataFinal = ""
-        orgUrlDataFinal = ""
-        widgetIdDataFinal = ""
-        
+
+    private func applyCredentialsToUI() {
+        orgIdTextField.text = credentials.orgId
+        orgUrlTextField.text = credentials.orgUrl
+        widgetIdTextField.text = credentials.widgetId
+        authTokenTextField.text = credentials.authToken
+    }
+
+    private func readCredentialsFromUI() -> OrgCredentials {
+        OrgCredentials(
+            orgId: orgIdTextField.text ?? "",
+            orgUrl: orgUrlTextField.text ?? "",
+            widgetId: widgetIdTextField.text ?? "",
+            authToken: authTokenTextField.text ?? ""
+        )
+    }
+
+    private func styleAddDetailsView() {
+        viewAddDetails.layer.borderColor = blueOCStandardColor.cgColor
+        viewAddDetails.layer.borderWidth = 0.5
+        viewAddDetails.layer.cornerRadius = 5
+        btnStartChat.layer.cornerRadius = 5
         btnStartChat.setTitle("Start Chat", for: .normal)
-        
-        UserDefaults.standard.removeObject(forKey: "orgIdData")
-        UserDefaults.standard.removeObject(forKey: "orgUrlData")
-        UserDefaults.standard.removeObject(forKey: "widgetIdData")
-        do {
-             try KeychainService.saveToken("", for: "tokenAuth")
-        } catch {}
     }
-    
-    @IBAction func actionAddDefaultCred(_ sender: Any) {
-        LiveChatMessaging.shared.resetAllData()
-        
-        orgIdTextField.text = orgIdData
-        orgUrlTextField.text = orgUrlData
-        widgetIdTextField.text = widgetIdData
-        authTokenTextField.text = authToken
-        
-        widgetIdDataFinal = widgetIdData
-        orgIdDataFinal = orgIdData
-        orgUrlDataFinal = orgUrlData
-        authTokenFinal = authToken
+
+    private func enableStartChatButton() {
+        btnStartChat.isEnabled = true
+        btnStartChat.backgroundColor = blueOCStandardColor
     }
-    
+
     func checkChatGoingOn(completionHandler: @escaping ((_ isChatGoingOn: Bool) -> Void)) {
         if self.isViewLoaded && self.viewIfLoaded?.window != nil {
             if LiveChatMessaging.shared.getChatProgress() {
@@ -308,8 +257,102 @@ extension ViewController : UITextFieldDelegate {
     }
 }
 
+extension ViewController {
+    func setMessagingViewProperties(vc: LiveChatMessagingViewController) {
+        let messagingView = LCWMessagingViewProperties()
+        messagingView.isChatFromBottom = true
+        
+        // FlexUIProperties
+        let sa = messagingView.flexUIViewProperties
+        sa.useFlexUI = true // imp
+        
+        sa.backgroundColor = .white
+        sa.containerBorderColor = UIColor.darkGray
+        sa.containerBorderWidth = 1.5
+        sa.containerCornerRadius = 8
+        sa.containerSeparatorColor = UIColor.darkGray
+        sa.containerSeparatorHeight = 0
+        
+        sa.buttonTitleColor = UIColor.darkGray
+        sa.buttonBorderWidth = 1.5
+        sa.buttonBorderColor = UIColor.darkGray
+        sa.buttonCorners = [.bottomLeft,.topRight]
+        sa.buttonCornerRadius = 12
+
+        sa.buttonHeight = 44
+        sa.itemSpacing = 8
+        sa.maxHeight = 200
+        sa.minButtonWidth = 80
+
+        vc.setTranscriptViewPropeties(properties: messagingView)
+    }
+}
+
 //MARK: CORE API CALLING ENDS HERE
 //MARK: -
+
+struct OrgCredentials {
+    var orgId: String
+    var orgUrl: String
+    var widgetId: String
+    var authToken: String
+
+    static let placeholder = OrgCredentials(
+        orgId: "<Add org Id>",
+        orgUrl: "<Add org url>",
+        widgetId: "<Add widget url>",
+        authToken: ""
+    )
+
+    static let empty = OrgCredentials(orgId: "", orgUrl: "", widgetId: "", authToken: "")
+
+    var isComplete: Bool {
+        !orgId.isEmpty && !orgUrl.isEmpty && !widgetId.isEmpty
+    }
+}
+
+enum OrgCredentialsStore {
+    private static let orgIdKey = "orgIdData"
+    private static let orgUrlKey = "orgUrlData"
+    private static let widgetIdKey = "widgetIdData"
+    private static let authTokenAccount = "tokenAuth"
+
+    static func load() -> OrgCredentials {
+        let defaults = UserDefaults.standard
+        let placeholder = OrgCredentials.placeholder
+
+        let token: String
+        if let saved = try? KeychainService.loadToken(for: authTokenAccount), !saved.isEmpty {
+            token = saved
+        } else {
+            token = placeholder.authToken
+        }
+
+        return OrgCredentials(
+            orgId: defaults.string(forKey: orgIdKey) ?? placeholder.orgId,
+            orgUrl: defaults.string(forKey: orgUrlKey) ?? placeholder.orgUrl,
+            widgetId: defaults.string(forKey: widgetIdKey) ?? placeholder.widgetId,
+            authToken: token
+        )
+    }
+
+    static func save(_ credentials: OrgCredentials) {
+        let defaults = UserDefaults.standard
+        defaults.set(credentials.orgId, forKey: orgIdKey)
+        defaults.set(credentials.orgUrl, forKey: orgUrlKey)
+        defaults.set(credentials.widgetId, forKey: widgetIdKey)
+        try? KeychainService.saveToken(credentials.authToken, for: authTokenAccount)
+        defaults.set(try? KeychainService.loadToken(for: authTokenAccount), forKey: "authToken")
+    }
+
+    static func clear() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: orgIdKey)
+        defaults.removeObject(forKey: orgUrlKey)
+        defaults.removeObject(forKey: widgetIdKey)
+        try? KeychainService.saveToken("", for: authTokenAccount)
+    }
+}
 
 extension Data {
     var bytes: [UInt8] {
