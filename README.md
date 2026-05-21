@@ -202,17 +202,7 @@ Customizations available in the out of the box messaging widget are documented h
 [iOS Widget Customizations](iOS_Widget_Customizations.pdf)
 
 ##  card limitations for iOS
-1. Blockquotes are unsupported by the AdaptiveCards.
-2. Bullet point support in Adaptive Cards is limited.
-* You can display bullet points using "- <your text>", but for longer text (two or more lines), the text does not align properly with the bullet point.
-```objc
-  ...,{
-     "isSubtle": true,
-     "text": "- Item 2",
-     "wrap": true,
-     "type": "TextBlock"
-  },...
-```
+1. Bullet points, Blockquotes are unsupported by the AdaptiveCards for iOS. 
 ## Adaptive Cards 
 We utilize Adaptivecards to present bot responses. If you would like to review the various Adaptivecards element types or learn how to create JSON for Adaptivecards, please refer to the link below.
 [Adaptivecards Cards] https://adaptivecards.io/
