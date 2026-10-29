@@ -261,8 +261,8 @@ public func getAgentAvailability(_ optionalParams: LCWAgentAvailabilityRequest? 
 ```
 #### Parameters
 * `optionalParams`: An optional parameter of type LCWAgentAvailabilityRequest. This parameter can be used to pass additional request details. All parameters are optional in LCWAgentAvailabilityRequest.
-  * `preChatResponse`: The data submitted from the pre-chat survey card that `getPreChatSurvey` returns, passed unchanged; it includes `"Type": "InputSubmit"`. Any other dictionary is ignored without an error. To send values that your app collects itself, use `customContext`.
-  * `customContext`: A dictionary of context variables. Each entry must itself be a dictionary with `value` (a non-empty string, number, or Boolean) and `isDisplayable` (`true` to show the value to service representatives in the Conversation summary). Entries in any other form, such as a plain string, are removed before the chat starts, without an error. To use a value in routing rules, define a context variable with the same name on the workstream. If you use the Messaging Widget, set the same dictionary with `LiveChatMessaging.shared.setCustomContext(customContext:)` before the chat starts. For authenticated chat, pass context variables in the `lwicontexts` claim of the authentication token instead; see [Configure authentication settings](https://learn.microsoft.com/dynamics365/customer-service/administer/create-chat-auth-settings).
+  * `preChatResponse`: The answers from the pre-chat survey card that `getPreChatSurvey` returns, keyed by the card's input IDs, plus `"Type": "InputSubmit"`. If you render the card with the Adaptive Cards SDK, `card.inputs()` returns only the answers, so add `"Type": "InputSubmit"` before you pass them. Any other dictionary is ignored without an error. To send values that your app collects itself, use `customContext`.
+  * `customContext`: A dictionary of context variables. Each entry must itself be a dictionary with `value` (a non-empty string, number, or Boolean) and `isDisplayable` (`true` to show the value to service representatives in the Conversation summary). Entries in any other form, such as a plain string, are removed before the chat starts, without an error. To use a value in routing rules, define a context variable with the same name on the workstream. For authenticated chat, this call doesn't read the `lwicontexts` claim of the authentication token, so pass the same context variables here as in the token.
   * `browser`: A string representing the browser being used. particularly for browsers.
   * `os`: A string representing the operating system being used.
   * `locale`: A string representing the locale.
@@ -275,8 +275,12 @@ public func getAgentAvailability(_ optionalParams: LCWAgentAvailabilityRequest? 
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
+// surveyAnswers: the answers from the getPreChatSurvey card, decoded from card.inputs()
+var surveySubmitData: [String: Any] = surveyAnswers
+surveySubmitData["Type"] = "InputSubmit"
+
 let optionalParams = LCWAgentAvailabilityRequest(
-    preChatResponse: surveySubmitData, // data submitted from the getPreChatSurvey card
+    preChatResponse: surveySubmitData,
     customContext: [
         "contextKey1": ["value": "contextValue1", "isDisplayable": true],
         "contextKey2": ["value": "contextValue2", "isDisplayable": false]
@@ -336,7 +340,7 @@ public func startChat(_ optionalParams: LCWStartChatRequest? = nil, _ completion
 #### Parameters
 * `optionalParams`: An optional parameter of type LCWStartChatRequest. This parameter can be used to pass additional request details. All parameters in LCWStartChatRequest are optional.
   * `liveChatContext`: A dictionary containing the live chat context.
-  * `preChatResponse`: The data submitted from the pre-chat survey card that `getPreChatSurvey` returns, passed unchanged; it includes `"Type": "InputSubmit"`. Any other dictionary is ignored without an error. To send values that your app collects itself, use `customContext`.
+  * `preChatResponse`: The answers from the pre-chat survey card that `getPreChatSurvey` returns, keyed by the card's input IDs, plus `"Type": "InputSubmit"`. If you render the card with the Adaptive Cards SDK, `card.inputs()` returns only the answers, so add `"Type": "InputSubmit"` before you pass them. Any other dictionary is ignored without an error. To send values that your app collects itself, use `customContext`.
   * `customContext`: A dictionary of context variables. Each entry must itself be a dictionary with `value` (a non-empty string, number, or Boolean) and `isDisplayable` (`true` to show the value to service representatives in the Conversation summary). Entries in any other form, such as a plain string, are removed before the chat starts, without an error. To use a value in routing rules, define a context variable with the same name on the workstream. If you use the Messaging Widget, set the same dictionary with `LiveChatMessaging.shared.setCustomContext(customContext:)` before the chat starts. For authenticated chat, pass context variables in the `lwicontexts` claim of the authentication token instead; see [Configure authentication settings](https://learn.microsoft.com/dynamics365/customer-service/administer/create-chat-auth-settings).
   * `browser`: A string representing the browser being used (the widget will report "App", we recommend using the same value)
   * `os`: A string representing the operating system being used.
@@ -355,9 +359,13 @@ public func startChat(_ optionalParams: LCWStartChatRequest? = nil, _ completion
   * `error`: An optional LCWResponse object that contains the details of the error response.
 #### Example
 ```objc
+// surveyAnswers: the answers from the getPreChatSurvey card, decoded from card.inputs()
+var surveySubmitData: [String: Any] = surveyAnswers
+surveySubmitData["Type"] = "InputSubmit"
+
 let startChatRequest = LCWStartChatRequest(
     liveChatContext: ["contextKey": "contextValue"],
-    preChatResponse: surveySubmitData, // data submitted from the getPreChatSurvey card
+    preChatResponse: surveySubmitData,
     customContext: [
         "contextKey1": ["value": "contextValue1", "isDisplayable": true],
         "contextKey2": ["value": "contextValue2", "isDisplayable": false]
