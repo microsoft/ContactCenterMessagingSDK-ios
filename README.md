@@ -261,8 +261,8 @@ public func getAgentAvailability(_ optionalParams: LCWAgentAvailabilityRequest? 
 ```
 #### Parameters
 * `optionalParams`: An optional parameter of type LCWAgentAvailabilityRequest. This parameter can be used to pass additional request details. All parameters are optional in LCWAgentAvailabilityRequest.
-  * `preChatResponse`: A dictionary containing pre-chat response.
-  * `customContext`: A dictionary containing custom context information.
+  * `preChatResponse`: The data submitted from the pre-chat survey card that `getPreChatSurvey` returns, passed unchanged; it includes `"Type": "InputSubmit"`. Any other dictionary is ignored without an error. To send values that your app collects itself, use `customContext`.
+  * `customContext`: A dictionary of context variables. Each entry must itself be a dictionary with `value` (a non-empty string, number, or Boolean) and `isDisplayable` (`true` to show the value to service representatives in the Conversation summary). Entries in any other form, such as a plain string, are removed before the chat starts, without an error. To use a value in routing rules, define a context variable with the same name on the workstream. If you use the Messaging Widget, set the same dictionary with `LiveChatMessaging.shared.setCustomContext(customContext:)` before the chat starts. For authenticated chat, pass context variables in the `lwicontexts` claim of the authentication token instead; see [Configure authentication settings](https://learn.microsoft.com/dynamics365/customer-service/administer/create-chat-auth-settings).
   * `browser`: A string representing the browser being used. particularly for browsers.
   * `os`: A string representing the operating system being used.
   * `locale`: A string representing the locale.
@@ -276,8 +276,11 @@ public func getAgentAvailability(_ optionalParams: LCWAgentAvailabilityRequest? 
 #### Example
 ```objc
 let optionalParams = LCWAgentAvailabilityRequest(
-    preChatResponse: ["question1": "answer1"],
-    customContext: ["key": "value"],
+    preChatResponse: surveySubmitData, // data submitted from the getPreChatSurvey card
+    customContext: [
+        "contextKey1": ["value": "contextValue1", "isDisplayable": true],
+        "contextKey2": ["value": "contextValue2", "isDisplayable": false]
+    ],
     browser: "",
     os: "iOS",
     locale: "en-US",
@@ -333,8 +336,8 @@ public func startChat(_ optionalParams: LCWStartChatRequest? = nil, _ completion
 #### Parameters
 * `optionalParams`: An optional parameter of type LCWStartChatRequest. This parameter can be used to pass additional request details. All parameters in LCWStartChatRequest are optional.
   * `liveChatContext`: A dictionary containing the live chat context.
-  * `preChatResponse`: A dictionary containing pre-chat responses.
-  * `customContext`: A dictionary containing custom context information.
+  * `preChatResponse`: The data submitted from the pre-chat survey card that `getPreChatSurvey` returns, passed unchanged; it includes `"Type": "InputSubmit"`. Any other dictionary is ignored without an error. To send values that your app collects itself, use `customContext`.
+  * `customContext`: A dictionary of context variables. Each entry must itself be a dictionary with `value` (a non-empty string, number, or Boolean) and `isDisplayable` (`true` to show the value to service representatives in the Conversation summary). Entries in any other form, such as a plain string, are removed before the chat starts, without an error. To use a value in routing rules, define a context variable with the same name on the workstream. If you use the Messaging Widget, set the same dictionary with `LiveChatMessaging.shared.setCustomContext(customContext:)` before the chat starts. For authenticated chat, pass context variables in the `lwicontexts` claim of the authentication token instead; see [Configure authentication settings](https://learn.microsoft.com/dynamics365/customer-service/administer/create-chat-auth-settings).
   * `browser`: A string representing the browser being used (the widget will report "App", we recommend using the same value)
   * `os`: A string representing the operating system being used.
   * `locale`: A string representing the locale.
@@ -354,8 +357,11 @@ public func startChat(_ optionalParams: LCWStartChatRequest? = nil, _ completion
 ```objc
 let startChatRequest = LCWStartChatRequest(
     liveChatContext: ["contextKey": "contextValue"],
-    preChatResponse: ["question1": "answer1"],
-    customContext: ["key": "value"],
+    preChatResponse: surveySubmitData, // data submitted from the getPreChatSurvey card
+    customContext: [
+        "contextKey1": ["value": "contextValue1", "isDisplayable": true],
+        "contextKey2": ["value": "contextValue2", "isDisplayable": false]
+    ],
     browser: "Chrome",
     os: "iOS",
     locale: "en-US",
