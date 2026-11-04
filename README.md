@@ -87,6 +87,8 @@ To get you started quickly, we offer a pre-configured sample application here:
     }
     
 ## Installation
+Install the SDK with CocoaPods or by manual integration (below). Swift Package Manager is not supported yet.
+
 ### Pre-Requisites
 
 *	Dynamics 365 Contact Center License
